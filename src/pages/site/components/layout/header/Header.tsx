@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import Image from "next/image";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import scss from "./Style.module.scss";
-import logo from "@/assets/logo.svg";
+import React, { FC } from 'react';
+import Image from 'next/image';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import scss from './Style.module.scss';
+import logo from '@/assets/logo.svg';
 
 const Header: FC = () => {
 	return (

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import scss from "./Style.module.scss";
-import { FaEdit } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import React, { FC } from 'react';
+import scss from './Style.module.scss';
+import { FaEdit } from 'react-icons/fa';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 interface dataType {
 	name: string;
@@ -14,25 +14,25 @@ interface dataType {
 const HomePage: FC = () => {
 	const data: dataType[] = [
 		{
-			name: "Example",
-			data: "2003/10/14",
-			deadline: "2023/12/25",
-			createdAt: "15:30",
-			updatedAt: "16:00"
+			name: 'Example',
+			data: '2003/10/14',
+			deadline: '2023/12/25',
+			createdAt: '15:30',
+			updatedAt: '16:00'
 		},
 		{
-			name: "Example",
-			data: "2003/10/14",
-			deadline: "2023/12/25",
-			createdAt: "15:30",
-			updatedAt: "16:00"
+			name: 'Example',
+			data: '2003/10/14',
+			deadline: '2023/12/25',
+			createdAt: '15:30',
+			updatedAt: '16:00'
 		},
 		{
-			name: "Example",
-			data: "2003/10/14",
-			deadline: "2023/12/25",
-			createdAt: "15:30",
-			updatedAt: "16:00"
+			name: 'Example',
+			data: '2003/10/14',
+			deadline: '2023/12/25',
+			createdAt: '15:30',
+			updatedAt: '16:00'
 		}
 	];
 	return (
