@@ -2,14 +2,14 @@ import React, { FC, ReactNode } from 'react';
 import LayoutPage from '@/pages/admin/components/layout/LayoutPage';
 
 interface LayoutType {
-	children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout: FC<LayoutType> = ({ children }) => {
-	return (
-		<>
-			<LayoutPage>{children}</LayoutPage>
-		</>
-	);
+  return (
+    <>
+      <LayoutPage>{children}</LayoutPage>
+    </>
+  );
 };
 export default Layout;

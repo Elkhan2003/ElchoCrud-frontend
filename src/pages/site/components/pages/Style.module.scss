@@ -1,108 +1,108 @@
 .home_page {
-	padding-top: 100px;
+  padding-top: 100px;
 
-	.content {
-		.todo_list {
-			width: 100%;
-			max-width: 700px;
-			margin-inline: auto;
-			.form {
-				margin-bottom: 10px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				.add_input {
-					padding-inline: 30px;
-					width: 100%;
-					height: 60px;
-					outline: 0;
-					border: 0;
-					border-radius: 30px 0 0 30px;
-					font-size: 20px;
-				}
-				.add_button {
-					width: 160px;
-					height: 60px;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					background: linear-gradient(98.37deg, #b509bd 0.99%, #da2f68 100%);
-					outline: 0;
-					border: 0;
-					border-radius: 0 30px 30px 0;
-					font-size: 18px;
-					cursor: pointer;
-				}
-			}
+  .content {
+    .todo_list {
+      width: 100%;
+      max-width: 700px;
+      margin-inline: auto;
+      .form {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .add_input {
+          padding-inline: 30px;
+          width: 100%;
+          height: 60px;
+          outline: 0;
+          border: 0;
+          border-radius: 30px 0 0 30px;
+          font-size: 20px;
+        }
+        .add_button {
+          width: 160px;
+          height: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(98.37deg, #b509bd 0.99%, #da2f68 100%);
+          outline: 0;
+          border: 0;
+          border-radius: 0 30px 30px 0;
+          font-size: 18px;
+          cursor: pointer;
+        }
+      }
 
-			.tasks {
-				display: flex;
-				flex-direction: column;
-				gap: 7px;
-				.task {
-					padding: 8px 15px;
-					background: #08162d;
-					border-radius: 12px;
+      .tasks {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        .task {
+          padding: 8px 15px;
+          background: #08162d;
+          border-radius: 12px;
 
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
-					.task_details {
-						.task_time_info {
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							gap: 5px;
-							color: #c0c0c0;
+          .task_details {
+            .task_time_info {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+              color: #c0c0c0;
 
-							.task_date {
-								font-size: 14px;
-							}
-						}
-					}
+              .task_date {
+                font-size: 14px;
+              }
+            }
+          }
 
-					.task_buttons {
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						button {
-							padding: 10px;
+          .task_buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+              padding: 10px;
 
-							background: transparent;
-							outline: none;
-							border: none;
+              background: transparent;
+              outline: none;
+              border: none;
 
-							display: flex;
-							justify-content: center;
-							align-items: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
-							transition: all ease 0.3s;
-							cursor: pointer;
+              transition: all ease 0.3s;
+              cursor: pointer;
 
-							svg {
-								font-size: 20px;
-							}
-						}
-						.edit_button {
-							&:hover {
-								color: #ec09c6;
-							}
-							&:active {
-								color: #ec0909;
-							}
-						}
-						.delete_button {
-							&:hover {
-								color: #ec09c6;
-							}
-							&:active {
-								color: #ec0909;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+              svg {
+                font-size: 20px;
+              }
+            }
+            .edit_button {
+              &:hover {
+                color: #ec09c6;
+              }
+              &:active {
+                color: #ec0909;
+              }
+            }
+            .delete_button {
+              &:hover {
+                color: #ec09c6;
+              }
+              &:active {
+                color: #ec0909;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

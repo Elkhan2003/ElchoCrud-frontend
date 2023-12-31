@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 interface LayoutType {
-	children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout: FC<LayoutType> = ({ children }) => {
-	return <>{children}</>;
+  return <>{children}</>;
 };
 export default Layout;
