@@ -1,4 +1,4 @@
-.home_page {
+.todo_page {
 	padding-top: 100px;
 
 	.content {
@@ -83,18 +83,26 @@
 							svg {
 								font-size: 20px;
 							}
+
+							@media (max-width: 768px) {
+								cursor: default;
+							}
 						}
 						.edit_button {
-							&:hover {
-								color: #ec09c6;
+							@media (min-width: 768px) {
+								&:hover {
+									color: #ec09c6;
+								}
 							}
 							&:active {
 								color: #ec0909;
 							}
 						}
 						.delete_button {
-							&:hover {
-								color: #ec09c6;
+							@media (min-width: 768px) {
+								&:hover {
+									color: #ec09c6;
+								}
 							}
 							&:active {
 								color: #ec0909;

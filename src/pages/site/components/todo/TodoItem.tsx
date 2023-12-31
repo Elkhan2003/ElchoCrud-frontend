@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-const Header: FC = () => {
+const TodoItem: FC = () => {
 	return (
 		<>
 			<div>
-				<h3>Admin Header</h3>
+				<h3>TodoItem</h3>
 			</div>
 		</>
 	);
 };
-export default Header;
+export default TodoItem;
