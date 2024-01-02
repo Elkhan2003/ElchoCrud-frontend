@@ -2,56 +2,13 @@ import React, { FC } from 'react';
 import scss from '@/pages/site/components/todo/Todo.module.scss';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import axios from 'axios';
+import { dataType } from './TodoList';
 
-interface dataType {
-	name: string;
-	data: string;
-	deadline: string;
-	createdAt: string;
-	updatedAt: string;
+interface TodoItemProps {
+	data: dataType[];
 }
 
-const TodoItem: FC = () => {
-	const data: dataType[] = [
-		{
-			name: 'Example',
-			data: '2003/10/14',
-			deadline: '2023/12/25',
-			createdAt: '15:30',
-			updatedAt: '16:00'
-		},
-		{
-			name: 'Example',
-			data: '2003/10/14',
-			deadline: '2023/12/25',
-			createdAt: '15:30',
-			updatedAt: '16:00'
-		},
-		{
-			name: 'Example',
-			data: '2003/10/14',
-			deadline: '2023/12/25',
-			createdAt: '15:30',
-			updatedAt: '16:00'
-		}
-	];
-	const postRequest = async () => {
-		const url = 'https://worried-tux-toad.cyclic.app/api/v1/send-movie';
-		const addData = {
-			title: 'Example',
-			author: 'Example',
-			image: 'https://avatars.githubusercontent.com/u/98739225?v=4s'
-		};
-
-		try {
-			const response = await axios.post(url, addData);
-			console.log(response.data);
-		} catch (error) {
-			console.error('Ошибка при выполнении POST-запроса:', error);
-		}
-	};
-
+const TodoItem: FC<TodoItemProps> = ({ data }) => {
 	return (
 		<>
 			<div className={scss.tasks}>
