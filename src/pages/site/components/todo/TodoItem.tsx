@@ -9,6 +9,10 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = ({ data }) => {
+	if (!data) {
+		return <div>No data available</div>;
+	}
+
 	return (
 		<>
 			<div className={scss.tasks}>
