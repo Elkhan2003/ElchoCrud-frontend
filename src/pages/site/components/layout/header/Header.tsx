@@ -10,7 +10,10 @@ import logo from '@/assets/logo.svg';
 const Header: FC = () => {
 	const userData = useUserData();
 	const logout = () => {
-		window.open(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/logout`, '_self');
+		window.open(
+			`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/logout`,
+			'_self'
+		);
 	};
 	return (
 		<>

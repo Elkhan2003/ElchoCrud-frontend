@@ -28,7 +28,7 @@ export const UserDataProvider: FC<UserDataProviderProps> = ({ children }) => {
 		const loadUserData = async () => {
 			try {
 				const response = await axios.get<getUserData>(
-					`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user`,
+					`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/user`,
 					{
 						withCredentials: true
 					}
@@ -37,7 +37,7 @@ export const UserDataProvider: FC<UserDataProviderProps> = ({ children }) => {
 					setUser(response.data.user);
 					console.log(response.data.user);
 				} else {
-					setTimeout(loadUserData, 1000);
+					setTimeout(loadUserData, 500);
 				}
 			} catch (error) {
 				console.error(

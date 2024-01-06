@@ -6,7 +6,7 @@ import { FaGithub } from 'react-icons/fa';
 const GitHubButton: FC = () => {
 	const login = () => {
 		window.open(
-			`${process.env.NEXT_PUBLIC_API_URL}/api/v1/login/github`,
+			`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login/github`,
 			'_self'
 		);
 	};

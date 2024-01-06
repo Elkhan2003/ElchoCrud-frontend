@@ -6,7 +6,7 @@ import { FaApple } from 'react-icons/fa';
 const AppleButton: FC = () => {
 	const login = () => {
 		// window.open(
-		// 	`${process.env.NEXT_PUBLIC_API_URL}/api/v1/login-apple`,
+		// 	`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login/apple`,
 		// 	"_self"
 		// );
 		console.error('Error login with Apple');
