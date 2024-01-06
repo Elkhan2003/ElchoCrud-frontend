@@ -37,6 +37,7 @@ export const UserDataProvider: FC<UserDataProviderProps> = ({ children }) => {
 					setUser(response.data.user);
 					console.log(response.data.user);
 				} else {
+					console.log(response.data.user);
 					console.log('User not found');
 					setTimeout(loadUserData, 500);
 				}
