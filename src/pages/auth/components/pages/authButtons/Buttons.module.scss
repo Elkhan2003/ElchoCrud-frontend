@@ -1,0 +1,79 @@
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+
+	width: 100%;
+	height: 48px;
+
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1.2px;
+
+	border: none;
+	border-radius: 6px;
+
+	transition: 0.2s;
+	cursor: pointer;
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
+}
+
+.GoogleButton {
+	background: #467fe4;
+
+	&:hover {
+		background: #6c95f9;
+	}
+
+	span {
+		padding: 1px;
+		background: #ffffff;
+		border-radius: 50%;
+		svg {
+			font-size: 24px;
+		}
+	}
+}
+
+.GitHubButton {
+	background: #333333;
+
+	&:hover {
+		background: #414141;
+	}
+
+	span {
+		background: #333333;
+		border-radius: 50%;
+		svg {
+			font-size: 28px;
+
+			color: #fff;
+		}
+	}
+}
+
+.AppleButton {
+	background: #000000;
+	background: #dadada;
+
+	cursor: not-allowed;
+
+	//&:hover {
+	//	background: #2c2c2c;
+	//}
+
+	span {
+		svg {
+			font-size: 28px;
+
+			color: #fff;
+		}
+	}
+}
