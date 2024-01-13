@@ -12,17 +12,17 @@ export const SessionProvider: FC<ProtectedRouteProps> = ({ children }) => {
 
 	switch (pathname) {
 		case '/login':
-			if (userData?.login) {
+			if (userData?.isActive) {
 				redirect('/');
 			}
 			break;
 		case '/about':
-			if (!userData?.login) {
+			if (!userData?.isActive) {
 				redirect('/login');
 			}
 			break;
 		case '/price':
-			if (!userData?.login) {
+			if (!userData?.isActive) {
 				redirect('/login');
 			}
 			break;

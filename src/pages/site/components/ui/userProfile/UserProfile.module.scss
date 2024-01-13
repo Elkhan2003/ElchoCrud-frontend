@@ -1,0 +1,148 @@
+.svg_icon {
+	width: 19px;
+	height: 19px;
+}
+
+.arrow {
+	width: 19px;
+	height: 19px;
+	transition: transform 0.2s ease-in-out;
+
+	&.active {
+		transform: rotate(90deg);
+	}
+}
+
+.dropdown_menu {
+	background: #1f1f1f;
+	border: 1px solid #333333;
+}
+
+//.ButtonUserProfile {
+//	position: relative;
+//	.user_profile {
+//		.user {
+//			padding: 10px;
+//			display: flex;
+//			justify-content: center;
+//			align-items: center;
+//			gap: 12px;
+//			border-radius: 12px;
+//			transition: 0.2s;
+//			cursor: pointer;
+//
+//			//&:hover {
+//			//	background: rgba(110, 117, 124, 0.3);
+//			//}
+//
+//			.avatar {
+//				object-fit: cover;
+//				width: 100%;
+//				max-width: 40px;
+//				height: auto;
+//
+//				border-radius: 50%;
+//			}
+//
+//			.info {
+//				width: auto;
+//				min-width: 175px;
+//				display: flex;
+//				flex-direction: column;
+//				justify-content: center;
+//				align-items: flex-start;
+//
+//				.name {
+//					font-size: 14px;
+//					color: #e7e7e7;
+//				}
+//
+//				.email {
+//					font-size: 12px;
+//					color: #b9b9b9;
+//				}
+//			}
+//
+//			.arrow {
+//				display: flex;
+//				justify-content: center;
+//				align-items: center;
+//				transition: transform 0.2s ease-in-out;
+//
+//				&.active {
+//					transform: rotate(90deg);
+//				}
+//
+//				svg {
+//					font-size: 22px;
+//					color: #e7e7e7;
+//				}
+//			}
+//		}
+//
+//		.login {
+//			padding: 8px 20px;
+//			display: flex;
+//			justify-content: center;
+//			align-items: center;
+//			border-radius: 12px;
+//			border: 1px solid rgba(110, 117, 124, 0.3);
+//			transition: 0.2s;
+//			cursor: pointer;
+//
+//			&:hover {
+//				background: rgba(110, 117, 124, 0.3);
+//				border: 1px solid rgba(231, 231, 231, 0);
+//			}
+//
+//			a {
+//				color: #e7e7e7;
+//			}
+//		}
+//	}
+//
+//	.user_menu {
+//		position: absolute;
+//		right: 0;
+//		top: 70px;
+//		z-index: 9999;
+//
+//		opacity: 0;
+//		visibility: hidden;
+//		transform: scale(0.8) translateZ(0px);
+//
+//		transition: 0.165s;
+//
+//		padding: 7px;
+//		height: auto;
+//		display: block;
+//		background: #1f1f1f;
+//		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+//		border-radius: 12px;
+//
+//		&.active {
+//			opacity: 1;
+//			visibility: visible;
+//			transform: none;
+//		}
+//
+//		.logout {
+//			padding: 8px 20px;
+//			width: 100%;
+//			display: flex;
+//			justify-content: center;
+//			align-items: center;
+//			gap: 10px;
+//			background: transparent;
+//			border-radius: 10px;
+//			border: none;
+//			transition: 0.2s;
+//			color: #fa5352;
+//			cursor: pointer;
+//
+//			&:hover {
+//				background: #583736;
+//			}
+//		}
+//	}
+//}

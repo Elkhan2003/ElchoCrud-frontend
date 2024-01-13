@@ -1,0 +1,19 @@
+.svg_icon {
+	width: 19px;
+	height: 19px;
+}
+
+.arrow {
+	width: 19px;
+	height: 19px;
+	transition: transform 0.2s ease-in-out;
+
+	&.active {
+		transform: rotate(90deg);
+	}
+}
+
+.dropdown_menu {
+	background: #1f1f1f;
+	border: 1px solid #333333;
+}

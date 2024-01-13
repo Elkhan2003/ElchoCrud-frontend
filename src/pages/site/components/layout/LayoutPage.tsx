@@ -11,13 +11,9 @@ const LayoutPage: FC<LayoutPageType> = ({ children }) => {
 	return (
 		<>
 			<div className={scss.layout}>
-				<header>
-					<Header />
-				</header>
+				<Header />
 				<main>{children}</main>
-				<footer>
-					<Footer />
-				</footer>
+				<Footer />
 			</div>
 		</>
 	);

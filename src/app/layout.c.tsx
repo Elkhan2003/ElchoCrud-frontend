@@ -1,5 +1,6 @@
 'use client';
 import React, { FC, ReactNode, useEffect, useState } from 'react';
+import { MantineProvider, ColorSchemeScript, createTheme } from '@mantine/core';
 import Snowfall from 'react-snowfall';
 import { ReduxProvider } from '@/redux/provider';
 import { SessionProvider } from '@/providers/SessionProvider';
@@ -11,6 +12,10 @@ interface LayoutRootType {
 
 const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 	const [snowCount, setSnowCount] = useState<number>();
+
+	const theme = createTheme({
+		primaryColor: 'violet'
+	});
 
 	useEffect(() => {
 		const changeSnowCount = () => {
@@ -32,11 +37,14 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 	return (
 		<>
 			<Snowfall snowflakeCount={snowCount} />
-			<UserDataProvider>
-				<ReduxProvider>
-					<SessionProvider>{children}</SessionProvider>
-				</ReduxProvider>
-			</UserDataProvider>
+			<ColorSchemeScript defaultColorScheme="dark" />
+			<MantineProvider defaultColorScheme="dark" theme={theme}>
+				<UserDataProvider>
+					<ReduxProvider>
+						<SessionProvider>{children}</SessionProvider>
+					</ReduxProvider>
+				</UserDataProvider>
+			</MantineProvider>
 		</>
 	);
 };
