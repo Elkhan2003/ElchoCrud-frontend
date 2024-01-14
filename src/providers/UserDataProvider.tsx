@@ -33,14 +33,16 @@ export const UserDataProvider: FC<UserDataProviderProps> = ({ children }) => {
 						withCredentials: true
 					}
 				);
-				if (response.data.user) {
-					setUser(response.data.user);
-					console.log(response.data.user);
-				} else {
-					console.log(response.data.user);
-					console.log('User not found');
-					setTimeout(loadUserData, 500);
-				}
+				setUser(response.data.user);
+				console.log(response.data.user);
+				// if (response.data.user) {
+				// 	setUser(response.data.user);
+				// 	console.log(response.data.user);
+				// } else {
+				// 	console.log(response.data.user);
+				// 	console.log('User not found');
+				// 	setTimeout(loadUserData, 500);
+				// }
 			} catch (error) {
 				console.error(
 					'Ошибка при получении информации о пользователе:',
