@@ -1,42 +1,42 @@
 'use client';
 import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@mantine/core';
 import logo from '@/assets/logo.svg';
-import { useUserData } from '@/hooks/useUserData';
-import UserProfile from '@/appSitePage/components/ui/userProfile/UserProfile';
-import BurgerMenu from '@/appSitePage/components/ui/burgerMenu/BurgerMenu';
+// import { useUserData } from '@/hooks/useUserData';
+// import UserProfile from '@/appSitePage/components/ui/userProfile/UserProfile';
+// import BurgerMenu from '@/appSitePage/components/ui/burgerMenu/BurgerMenu';
 
 const Header: FC = () => {
-	const [isMobile, setIsMobile] = useState(true);
-	const userData = useUserData();
-
-	useEffect(() => {
-		const changeIsMobile = () => {
-			if (window.innerWidth < 768) {
-				setIsMobile(true);
-			} else {
-				// ! testing
-				setIsMobile(false);
-			}
-		};
-
-		changeIsMobile();
-		window.addEventListener('resize', changeIsMobile);
-
-		return () => {
-			window.removeEventListener('resize', changeIsMobile);
-		};
-	}, []);
-
-	const logout = () => {
-		window.open(
-			`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/logout`,
-			'_self'
-		);
-	};
+	// const [isMobile, setIsMobile] = useState(true);
+	// const userData = useUserData();
+	//
+	// useEffect(() => {
+	// 	const changeIsMobile = () => {
+	// 		if (window.innerWidth < 768) {
+	// 			setIsMobile(true);
+	// 		} else {
+	// 			// ! testing
+	// 			setIsMobile(false);
+	// 		}
+	// 	};
+	//
+	// 	changeIsMobile();
+	// 	window.addEventListener('resize', changeIsMobile);
+	//
+	// 	return () => {
+	// 		window.removeEventListener('resize', changeIsMobile);
+	// 	};
+	// }, []);
+	//
+	// const logout = () => {
+	// 	window.open(
+	// 		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/logout`,
+	// 		'_self'
+	// 	);
+	// };
 	return (
 		<>
 			<header className={scss.header}>
@@ -74,29 +74,30 @@ const Header: FC = () => {
 								{/*		</li>*/}
 								{/*	</ul>*/}
 								{/*</nav>*/}
-								{isMobile ? (
-									<BurgerMenu
-										image={userData?.photo!}
-										firstName={userData?.firstName!}
-										lastName={userData?.lastName!}
-										email={userData?.login!}
-										isActive={userData?.isActive!}
-										authLink="/login"
-										logout={logout}
-									/>
-								) : userData?.isActive ? (
-									<UserProfile
-										image={userData.photo}
-										firstName={userData.firstName}
-										lastName={userData.lastName}
-										email={userData.login}
-										logout={logout}
-									/>
-								) : (
-									<Link href="/login">
-										<Button variant="outline">Login</Button>
-									</Link>
-								)}
+								{/*{isMobile ? (*/}
+								{/*	<BurgerMenu*/}
+								{/*		image={userData?.photo!}*/}
+								{/*		firstName={userData?.firstName!}*/}
+								{/*		lastName={userData?.lastName!}*/}
+								{/*		email={userData?.login!}*/}
+								{/*		isActive={userData?.isActive!}*/}
+								{/*		authLink="/login"*/}
+								{/*		logout={logout}*/}
+								{/*	/>*/}
+								{/*) : userData?.isActive ? (*/}
+								{/*	<UserProfile*/}
+								{/*		image={userData.photo}*/}
+								{/*		firstName={userData.firstName}*/}
+								{/*		lastName={userData.lastName}*/}
+								{/*		email={userData.login}*/}
+								{/*		logout={logout}*/}
+								{/*	/>*/}
+								{/*) : (*/}
+								{/*	<Link href="/login">*/}
+								{/*		<Button variant="outline">Login</Button>*/}
+								{/*	</Link>*/}
+								{/*)}*/}
+								<Button>Full Stack</Button>
 							</div>
 						</div>
 					</div>
