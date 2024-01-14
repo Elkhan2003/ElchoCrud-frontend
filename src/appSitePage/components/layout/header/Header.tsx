@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
 // import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@mantine/core';
+// import { Button } from '@mantine/core';
 import logo from '@/assets/logo.svg';
 // import { useUserData } from '@/hooks/useUserData';
 // import UserProfile from '@/appSitePage/components/ui/userProfile/UserProfile';
@@ -97,7 +97,7 @@ const Header: FC = () => {
 								{/*		<Button variant="outline">Login</Button>*/}
 								{/*	</Link>*/}
 								{/*)}*/}
-								<Button>Full Stack</Button>
+								<button>Full Stack</button>
 							</div>
 						</div>
 					</div>
