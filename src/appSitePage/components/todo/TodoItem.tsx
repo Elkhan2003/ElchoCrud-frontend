@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import scss from '@/appPages/site/components/todo/Todo.module.scss';
+import scss from '@/appSitePage/components/todo/Todo.module.scss';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { dataType } from './TodoList';

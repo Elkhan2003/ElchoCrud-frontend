@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { Button } from '@mantine/core';
 import logo from '@/assets/logo.svg';
 import { useUserData } from '@/hooks/useUserData';
-import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
-import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
+import UserProfile from '@/appSitePage/components/ui/userProfile/UserProfile';
+import BurgerMenu from '@/appSitePage/components/ui/burgerMenu/BurgerMenu';
 
 const Header: FC = () => {
 	const [isMobile, setIsMobile] = useState(true);
