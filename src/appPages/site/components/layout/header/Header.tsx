@@ -3,12 +3,11 @@ import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Button } from '@mantine/core';
 import logo from '@/assets/logo.svg';
 import { useUserData } from '@/hooks/useUserData';
-import UserProfile from '@/pages/site/components/ui/userProfile/UserProfile';
-import BurgerMenu from '@/pages/site/components/ui/burgerMenu/BurgerMenu';
+import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
+import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
 
 const Header: FC = () => {
 	const [isMobile, setIsMobile] = useState(true);

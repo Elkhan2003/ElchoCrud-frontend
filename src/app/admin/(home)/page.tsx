@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import HomePage from '@/pages/admin/components/pages/HomePage';
+import HomePage from '@/appPages/admin/components/pages/HomePage';
 
 const page: FC = () => {
 	return (

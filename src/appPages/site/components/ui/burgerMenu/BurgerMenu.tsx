@@ -1,3 +1,4 @@
+'use client';
 import React, { FC, useState } from 'react';
 import scss from './BurgerMenu.module.scss';
 import { Avatar, Burger, Group, Indicator, Menu, Text } from '@mantine/core';

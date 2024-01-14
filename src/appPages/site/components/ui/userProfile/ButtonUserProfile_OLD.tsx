@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { Avatar, Group, Text, UnstyledButton } from '@mantine/core';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import Image from 'next/image';
-import scss from '@/pages/site/components/ui/userProfile/UserProfile.module.scss';
+import scss from '@/appPages/site/components/ui/userProfile/UserProfile.module.scss';
 import Link from 'next/link';
 import { FiLogOut } from 'react-icons/fi';
 

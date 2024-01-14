@@ -1,7 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 import scss from './Style.module.scss';
-import TodoList from '@/pages/site/components/todo/TodoList';
+import TodoList from '@/appPages/site/components/todo/TodoList';
 
 const HomePage: FC = () => {
 	return (

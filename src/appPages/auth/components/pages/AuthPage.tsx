@@ -14,9 +14,9 @@ import {
 	logo_trueaccord,
 	logo_openfit
 } from '@/assets/company_logos';
-import GoogleButton from '@/pages/auth/components/pages/authButtons/GoogleButton';
-import GitHubButton from '@/pages/auth/components/pages/authButtons/GitHubButton';
-import AppleButton from '@/pages/auth/components/pages/authButtons/AppleButton';
+import GoogleButton from '@/appPages/auth/components/pages/authButtons/GoogleButton';
+import GitHubButton from '@/appPages/auth/components/pages/authButtons/GitHubButton';
+import AppleButton from '@/appPages/auth/components/pages/authButtons/AppleButton';
 
 const company_logos = [
 	{

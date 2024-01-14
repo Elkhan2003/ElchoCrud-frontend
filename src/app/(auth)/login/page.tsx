@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import AuthPage from '@/pages/auth/components/pages/AuthPage';
+import AuthPage from '@/appPages/auth/components/pages/AuthPage';
 
 const page: FC = () => {
 	return (
