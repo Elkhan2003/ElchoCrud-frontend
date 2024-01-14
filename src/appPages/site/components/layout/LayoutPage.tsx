@@ -1,8 +1,8 @@
 'use client';
 import React, { FC, ReactNode } from 'react';
 import scss from './LayoutPage.module.scss';
-import Header from '@/appSitePage/components/layout/header/Header';
-import Footer from '@/appSitePage/components/layout/footer/Footer';
+import Header from '@/appPages/site/components/layout/header/Header';
+import Footer from '@/appPages/site/components/layout/footer/Footer';
 
 interface LayoutPageType {
 	children: ReactNode;

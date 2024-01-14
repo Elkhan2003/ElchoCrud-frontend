@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import scss from './Todo.module.scss';
 import axios from 'axios';
-import TodoItem from '@/appSitePage/components/todo/TodoItem';
+import TodoItem from '@/appPages/site/components/todo/TodoItem';
 
 export interface dataType {
 	name: string;

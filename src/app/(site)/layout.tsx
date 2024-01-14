@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import LayoutPage from '@/appSitePage/components/layout/LayoutPage';
+import LayoutPage from '@/appPages/site/components/layout/LayoutPage';
 
 interface LayoutType {
 	children: ReactNode;
