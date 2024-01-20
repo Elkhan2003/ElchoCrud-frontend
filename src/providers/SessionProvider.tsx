@@ -1,28 +1,28 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { redirect, usePathname } from 'next/navigation';
-import { useUserData } from '@/hooks/useUserData';
+import { useGetMeQuery } from '@/redux/api/me';
 
 interface ProtectedRouteProps {
 	children: ReactNode;
 }
 
 export const SessionProvider: FC<ProtectedRouteProps> = ({ children }) => {
-	const userData = useUserData();
+	const { data, isLoading, error } = useGetMeQuery();
 	const pathname = usePathname();
 
 	switch (pathname) {
 		case '/login':
-			if (userData?.isActive) {
+			if (data?.user.isActive) {
 				redirect('/');
 			}
 			break;
 		case '/about':
-			if (!userData?.isActive) {
+			if (!data?.user.isActive) {
 				redirect('/login');
 			}
 			break;
 		case '/price':
-			if (!userData?.isActive) {
+			if (!data?.user.isActive) {
 				redirect('/login');
 			}
 			break;

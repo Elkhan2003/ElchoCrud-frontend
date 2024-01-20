@@ -5,13 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@mantine/core';
 import logo from '@/assets/logo.svg';
-import { useUserData } from '@/hooks/useUserData';
 import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
 import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
+import { useGetMeQuery } from '@/redux/api/me';
 
 const Header: FC = () => {
 	const [isMobile, setIsMobile] = useState(true);
-	const userData = useUserData();
+	const { data, isLoading, error } = useGetMeQuery();
 
 	useEffect(() => {
 		const changeIsMobile = () => {
@@ -76,20 +76,20 @@ const Header: FC = () => {
 								{/*</nav>*/}
 								{isMobile ? (
 									<BurgerMenu
-										image={userData?.photo!}
-										firstName={userData?.firstName!}
-										lastName={userData?.lastName!}
-										email={userData?.login!}
-										isActive={userData?.isActive!}
+										image={data?.user.photo!}
+										firstName={data?.user.firstName!}
+										lastName={data?.user.lastName!}
+										email={data?.user.login!}
+										isActive={data?.user.isActive!}
 										authLink="/login"
 										logout={logout}
 									/>
-								) : userData?.isActive ? (
+								) : data?.user.isActive ? (
 									<UserProfile
-										image={userData.photo}
-										firstName={userData.firstName}
-										lastName={userData.lastName}
-										email={userData.login}
+										image={data?.user.photo}
+										firstName={data?.user.firstName}
+										lastName={data?.user.lastName}
+										email={data?.user.login}
 										logout={logout}
 									/>
 								) : (

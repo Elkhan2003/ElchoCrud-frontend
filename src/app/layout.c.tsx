@@ -4,7 +4,6 @@ import { MantineProvider, ColorSchemeScript, createTheme } from '@mantine/core';
 import Snowfall from 'react-snowfall';
 import { ReduxProvider } from '@/redux/provider';
 import { SessionProvider } from '@/providers/SessionProvider';
-import { UserDataProvider } from '@/providers/UserDataProvider';
 
 interface LayoutRootType {
 	children: ReactNode;
@@ -39,11 +38,9 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 			<Snowfall snowflakeCount={snowCount} />
 			<ColorSchemeScript defaultColorScheme="dark" />
 			<MantineProvider defaultColorScheme="dark" theme={theme}>
-				<UserDataProvider>
-					<ReduxProvider>
-						<SessionProvider>{children}</SessionProvider>
-					</ReduxProvider>
-				</UserDataProvider>
+				<ReduxProvider>
+					<SessionProvider>{children}</SessionProvider>
+				</ReduxProvider>
 			</MantineProvider>
 		</>
 	);
