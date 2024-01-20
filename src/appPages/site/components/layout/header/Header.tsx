@@ -84,7 +84,7 @@ const Header: FC = () => {
 										authLink="/login"
 										logout={logout}
 									/>
-								) : data?.user.isActive ? (
+								) : data?.user ? (
 									<UserProfile
 										image={data?.user.photo}
 										firstName={data?.user.firstName}
