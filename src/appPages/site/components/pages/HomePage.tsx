@@ -3,12 +3,13 @@ import React, { FC } from 'react';
 import scss from './Style.module.scss';
 import TodoList from '@/appPages/site/components/todo/TodoList';
 import { useGetMeQuery } from '@/redux/api/me';
+import { useAppSelector } from '@/redux/store';
 
 const HomePage: FC = () => {
-	const { data, isLoading, error } = useGetMeQuery();
+	const { data: user, isLoading, error } = useGetMeQuery();
 
 	if (!isLoading) {
-		console.log('Redux', data);
+		console.log('Redux', user);
 	} else {
 		console.log('Loading...');
 	}
