@@ -8,7 +8,7 @@ const Footer: FC = () => {
 			<div className={`${scss.footer__page} ${scss.text__z__index}`}>
 				<div className="container">
 					<div className={scss.content}>
-						<p>Copyright © 2023. All rights are reserved</p>
+						<p>Copyright © 2024. All rights are reserved</p>
 						<p className={scss.center__text}>
 							Built with<span className={scss.heart}>♡</span>by
 							<span>

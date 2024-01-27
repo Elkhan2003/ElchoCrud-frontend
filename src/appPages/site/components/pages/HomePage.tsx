@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import scss from './Style.module.scss';
 import TodoList from '@/appPages/site/components/todo/TodoList';
 import { useGetMeQuery } from '@/redux/api/me';
+import Welcome from '@/appPages/site/components/pages/homeSection/Welcome';
 
 const HomePage: FC = () => {
 	const { data: user, isLoading, error } = useGetMeQuery();
@@ -18,6 +19,7 @@ const HomePage: FC = () => {
 			<section className={scss.home_page}>
 				<div className="container">
 					<div className={scss.content}>
+						<Welcome />
 						<TodoList />
 					</div>
 				</div>
