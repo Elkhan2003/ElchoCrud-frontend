@@ -1,9 +1,9 @@
 'use client';
 import React, { FC } from 'react';
 import scss from './CreateCrud.module.scss';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button, TextInput } from '@mantine/core';
 import { IconDatabasePlus } from '@tabler/icons-react';
-import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Inputs = {
 	url: string;

@@ -28,6 +28,7 @@
 		"@types/node": "^20.11.0",
 		"@types/react": "^18.2.47",
 		"@types/react-dom": "^18.2.18",
+		"@vercel/node": "^3.0.17",
 		"eslint": "^8.56.0",
 		"eslint-config-next": "14.0.4",
 		"sharp": "^0.33.2",
