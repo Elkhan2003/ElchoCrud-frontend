@@ -10,28 +10,70 @@
 			justify-content: space-between;
 			align-items: center;
 			.left {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 50px;
 				.logo {
 					.logo_link {
+						padding-block: 17px;
 						display: flex;
 						justify-content: center;
 						align-items: center;
-						gap: 3px;
-						.icon {
-							width: 60px;
-							height: auto;
+						font-size: 24px;
+						font-weight: 900;
+						color: #dcdcdc;
 
-							display: flex;
-							justify-content: space-between;
-							align-items: center;
+						@media (max-width: 768px) {
+							font-size: 20px;
 						}
-						.text {
-							font-size: 26px;
-							font-weight: 900;
-							background: -webkit-linear-gradient(-70deg, #b618ba, #d72b6e);
+
+						span {
+							background: -webkit-linear-gradient(-70deg, #b618ba, #996ef8);
 							-webkit-background-clip: text;
 							background-clip: text;
 							-webkit-text-fill-color: transparent;
 							-webkit-box-decoration-break: clone;
+						}
+
+						.icon {
+							width: 38px;
+							height: auto;
+
+							@media (max-width: 768px) {
+								width: 35px;
+							}
+						}
+					}
+				}
+
+				.nav {
+					ul {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 10px;
+						li {
+							.link {
+								padding: 12px;
+								border-radius: 12px;
+
+								display: flex;
+								justify-content: center;
+								align-items: center;
+
+								font-size: 17px;
+								font-weight: 500;
+								color: white;
+								transition: all ease 0.3s;
+
+								&:hover {
+									color: #996ef8;
+								}
+								&.active {
+									color: #af89fc;
+								}
+							}
 						}
 					}
 				}
@@ -40,37 +82,6 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				.nav {
-					ul {
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						gap: 10px;
-						li {
-							a {
-								padding: 12px;
-								background: #06162d;
-								border-radius: 50%;
-
-								display: flex;
-								justify-content: center;
-								align-items: center;
-
-								color: white;
-								transition: all ease 0.3s;
-
-								&:hover {
-									box-shadow: 0 0 0.625em #ec09c6;
-									color: #ec09c6;
-								}
-
-								svg {
-									font-size: 21px;
-								}
-							}
-						}
-					}
-				}
 			}
 		}
 	}

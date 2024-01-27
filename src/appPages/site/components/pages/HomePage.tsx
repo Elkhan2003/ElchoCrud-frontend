@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import scss from './Style.module.scss';
 import TodoList from '@/appPages/site/components/todo/TodoList';
 import { useGetMeQuery } from '@/redux/api/me';
-import { useAppSelector } from '@/redux/store';
 
 const HomePage: FC = () => {
 	const { data: user, isLoading, error } = useGetMeQuery();

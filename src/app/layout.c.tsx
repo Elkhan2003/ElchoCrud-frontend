@@ -21,7 +21,7 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 			if (window.innerWidth < 768) {
 				setSnowCount(15);
 			} else {
-				setSnowCount(100);
+				setSnowCount(50);
 			}
 		};
 

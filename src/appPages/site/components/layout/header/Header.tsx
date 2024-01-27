@@ -1,15 +1,30 @@
 'use client';
 import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
+// import { Permanent_Marker } from 'next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@mantine/core';
-import logo from '@/assets/logo.svg';
+import logo from '@/assets/logo.png';
 import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
 import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
 import { useGetMeQuery } from '@/redux/api/me';
+import { usePathname } from 'next/navigation';
+// const font = Permanent_Marker({ weight: '400', subsets: ['latin'] });
+
+const links = [
+	{
+		label: 'Home',
+		href: '/'
+	},
+	{
+		label: 'Dashboard',
+		href: '/dashboard'
+	}
+];
 
 const Header: FC = () => {
+	const pathname = usePathname();
 	const [isMobile, setIsMobile] = useState(true);
 	const { data, isLoading, error } = useGetMeQuery();
 
@@ -45,35 +60,40 @@ const Header: FC = () => {
 						<div className={scss.content}>
 							<div className={scss.left}>
 								<div className={scss.logo}>
-									<a href="#" className={scss.logo_link}>
+									<a href="#" className={`${scss.logo_link}`}>
 										<Image
 											className={scss.icon}
 											src={logo}
+											width={100}
+											height={100}
 											priority
 											alt="logo"
 										/>
-										<span className={scss.text}>FocusHub</span>
+										Elcho<span>Crud</span>
 									</a>
 								</div>
+								{!isMobile && (
+									<nav className={scss.nav}>
+										<ul>
+											{links.map((item, index) => (
+												<li key={index}>
+													<Link
+														className={
+															pathname === item.href
+																? `${scss.link} ${scss.active}`
+																: `${scss.link}`
+														}
+														href={item.href}
+													>
+														{item.label}
+													</Link>
+												</li>
+											))}
+										</ul>
+									</nav>
+								)}
 							</div>
 							<div className={scss.right}>
-								{/*<nav className={scss.nav}>*/}
-								{/*	<ul>*/}
-								{/*		<li>*/}
-								{/*			<a*/}
-								{/*				href="https://www.linkedin.com/in/elcho/"*/}
-								{/*				target="_blank"*/}
-								{/*			>*/}
-								{/*				<FaLinkedin />*/}
-								{/*			</a>*/}
-								{/*		</li>*/}
-								{/*		<li>*/}
-								{/*			<a href="https://github.com/Elkhan2003" target="_blank">*/}
-								{/*				<FaGithub />*/}
-								{/*			</a>*/}
-								{/*		</li>*/}
-								{/*	</ul>*/}
-								{/*</nav>*/}
 								{isMobile ? (
 									<BurgerMenu
 										image={data?.user.photo!}
