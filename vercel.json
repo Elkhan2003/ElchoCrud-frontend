@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "src": "/api/v1/(.*)",
+      "dest": "https://crudnest-backend.vercel.app/api/v1/$1"
+    }
+  ]
+}
+
