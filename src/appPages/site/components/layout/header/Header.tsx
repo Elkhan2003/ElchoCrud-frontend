@@ -101,6 +101,7 @@ const Header: FC = () => {
 										lastName={data?.user.lastName!}
 										email={data?.user.login!}
 										isActive={data?.user.isActive!}
+										links={links}
 										authLink="/login"
 										logout={logout}
 									/>

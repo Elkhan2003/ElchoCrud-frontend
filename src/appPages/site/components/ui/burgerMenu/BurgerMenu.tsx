@@ -8,7 +8,8 @@ import {
 	IconPhoto,
 	IconSearch,
 	IconSettings,
-	IconTrash
+	IconTrash,
+	IconChevronRight
 } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
@@ -19,6 +20,7 @@ interface BurgerMenuType {
 	lastName: string;
 	email: string;
 	isActive: boolean;
+	links: { label: string; href: string }[];
 	authLink: string;
 	logout: () => void;
 }
@@ -29,6 +31,7 @@ const BurgerMenu: FC<BurgerMenuType> = ({
 	lastName,
 	email,
 	isActive,
+	links,
 	authLink,
 	logout
 }) => {
@@ -101,6 +104,18 @@ const BurgerMenu: FC<BurgerMenuType> = ({
 				>
 					Search
 				</Menu.Item>
+
+				<Menu.Divider />
+				<Menu.Label>Navigation</Menu.Label>
+				{links.map((item, index) => (
+					<Link key={index} href={item.href}>
+						<Menu.Item
+							leftSection={<IconChevronRight className={scss.svg_icon} />}
+						>
+							{item.label}
+						</Menu.Item>
+					</Link>
+				))}
 
 				{isActive && (
 					<>
