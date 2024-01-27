@@ -17,7 +17,7 @@ const Welcome: FC = () => {
 								<strong>no back-end code.</strong>
 							</h2>
 						</div>
-						<div>https://crudcrud.com/api/ea751daef1fa4d6d9cf45021e433faab</div>
+						{/*<div>https://crudcrud.com/api/ea751daef1fa4d6d9cf45021e433faab</div>*/}
 						<p>
 							Your REST endpoint is up and ready to receive GET, POST, PUT and
 							DELETE requests.
