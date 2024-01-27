@@ -23,7 +23,15 @@
 				}
 			}
 
+			.resource_input {
+				@media (max-width: 900px) {
+					width: 100%;
+				}
+			}
+
 			.button {
+				width: 100%;
+				max-width: 112px;
 				.icon {
 					margin-right: 5px;
 					$icon_size: 18px;
