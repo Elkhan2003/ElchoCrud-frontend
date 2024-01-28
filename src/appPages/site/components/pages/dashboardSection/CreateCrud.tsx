@@ -1,8 +1,8 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import scss from './CreateCrud.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Button, TextInput } from '@mantine/core';
+import { Button, Loader, TextInput } from '@mantine/core';
 import { IconDatabasePlus } from '@tabler/icons-react';
 import { useCreateUserCrudMutation } from '@/redux/api/crud';
 
@@ -12,6 +12,7 @@ type Inputs = {
 };
 
 const CreateCrud: FC = () => {
+	const [isLoadingButton, setIsLoadingButton] = useState(false);
 	const [createCrud, { error }] = useCreateUserCrudMutation();
 	const {
 		register,
@@ -22,6 +23,7 @@ const CreateCrud: FC = () => {
 
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
+			setIsLoadingButton(true);
 			const responseData = await createCrud({
 				resource: data.resource
 			});
@@ -29,7 +31,10 @@ const CreateCrud: FC = () => {
 				// @ts-ignore
 				console.error(responseData.error.data.results);
 			}
-			reset();
+			setTimeout(() => {
+				setIsLoadingButton(false);
+				reset();
+			}, 500);
 		} catch (e) {
 			console.error(e);
 		}
@@ -51,10 +56,22 @@ const CreateCrud: FC = () => {
 								error={!!errors.resource}
 								{...register('resource', { required: true })}
 							/>
-							<Button type="submit" className={scss.button}>
-								<IconDatabasePlus className={scss.icon} />
-								Create
-							</Button>
+							{!isLoadingButton ? (
+								<Button type="submit" className={scss.button}>
+									<IconDatabasePlus className={scss.icon} />
+									Create
+								</Button>
+							) : (
+								<Button
+									type="submit"
+									variant="outline"
+									disabled
+									className={scss.button}
+								>
+									<Loader size="sm" className={scss.loading} />
+									Loading
+								</Button>
+							)}
 						</form>
 					</div>
 				</div>

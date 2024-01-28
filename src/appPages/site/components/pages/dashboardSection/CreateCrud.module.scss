@@ -37,12 +37,16 @@
 
 			.button {
 				width: 100%;
-				max-width: 112px;
+				max-width: 120px;
 				.icon {
 					margin-right: 5px;
 					$icon_size: 18px;
 					width: $icon_size;
 					height: $icon_size;
+				}
+
+				.loading {
+					margin-right: 5px;
 				}
 			}
 		}
