@@ -7,15 +7,27 @@ import {
 } from '@/redux/api/crud';
 import { Button } from '@mantine/core';
 import { IconCopy, IconDatabaseShare, IconTrash } from '@tabler/icons-react';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const RenderUserCrud: FC = () => {
 	const { data, isLoading } = useGetAllUserCrudQuery();
 	const [deleteCrud] = useDeleteUserCrudMutation();
 
-	const handleCopyClick = async (url: string) => {
+	const handleCopyClick = async (url: string, resource: string) => {
 		try {
 			await navigator.clipboard.writeText(url);
 			console.log('URL copied to clipboard');
+			toast(`🦄 ≤${resource}≥ API copied!`, {
+				position: 'bottom-right',
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'dark',
+				transition: Bounce
+			});
 		} catch (err) {
 			console.error('Unable to copy URL to clipboard', err);
 		}
@@ -60,7 +72,8 @@ const RenderUserCrud: FC = () => {
 											className={scss.button}
 											onClick={() =>
 												handleCopyClick(
-													`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`
+													`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+													item.resource
 												)
 											}
 										>
@@ -96,6 +109,7 @@ const RenderUserCrud: FC = () => {
 					</div>
 				</div>
 			</section>
+			<ToastContainer />
 		</>
 	);
 };

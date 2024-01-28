@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Orbitron } from 'next/font/google';
+import 'react-toastify/dist/ReactToastify.css';
 import '@mantine/core/styles.css';
 import './globals.scss';
 import LayoutRoot from '@/app/layout.c';

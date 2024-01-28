@@ -21,14 +21,18 @@ const CreateCrud: FC = () => {
 	} = useForm<Inputs>();
 
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
-		const responseData = await createCrud({
-			resource: data.resource
-		});
-		if ('error' in responseData) {
-			// @ts-ignore
-			console.error(responseData.error.data.results);
+		try {
+			const responseData = await createCrud({
+				resource: data.resource
+			});
+			if ('error' in responseData) {
+				// @ts-ignore
+				console.error(responseData.error.data.results);
+			}
+			reset();
+		} catch (e) {
+			console.error(e);
 		}
-		reset();
 	};
 
 	return (
@@ -36,7 +40,7 @@ const CreateCrud: FC = () => {
 			<section className={scss.CreateCrud}>
 				<div className="container">
 					<div className={scss.content}>
-						<h1 className={scss.title}>Endpoint Information</h1>
+						<h1 className={scss.title}>Create an Endpoint</h1>
 						<form className={scss.create_url} onSubmit={handleSubmit(onSubmit)}>
 							<p className={scss.url}>
 								{process.env.NEXT_PUBLIC_API_URL}/api/v1/generateRandomToken/
