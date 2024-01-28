@@ -2,9 +2,26 @@ namespace CRUD {
 	type GetCrudRequest = void;
 	type GetCrudResponse = {
 		success: boolean;
-		results: Result[];
+		results: Results[];
 	};
-	type Result = {
+
+	type CreateCrudResponse = {
+		success: true;
+		data: {
+			success: boolean;
+			results: Results[];
+		};
+	};
+
+	type DeleteCrudResponse = {
+		success: true;
+		data: {
+			success: boolean;
+			results: Results[];
+		};
+	};
+
+	type Results = {
 		id: number;
 		userId: number;
 		url: string;

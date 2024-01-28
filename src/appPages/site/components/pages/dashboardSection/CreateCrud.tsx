@@ -4,6 +4,7 @@ import scss from './CreateCrud.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button, TextInput } from '@mantine/core';
 import { IconDatabasePlus } from '@tabler/icons-react';
+import { useCreateUserCrudMutation } from '@/redux/api/crud';
 
 type Inputs = {
 	url: string;
@@ -11,13 +12,23 @@ type Inputs = {
 };
 
 const CreateCrud: FC = () => {
+	const [createCrud, { error }] = useCreateUserCrudMutation();
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors }
 	} = useForm<Inputs>();
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
-		console.log(data);
+
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		const responseData = await createCrud({
+			resource: data.resource
+		});
+		if ('error' in responseData) {
+			// @ts-ignore
+			console.error(responseData.error.data.results);
+		}
+		reset();
 	};
 
 	return (

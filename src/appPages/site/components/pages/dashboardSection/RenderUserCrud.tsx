@@ -1,12 +1,16 @@
 'use client';
 import React, { FC } from 'react';
 import scss from './RenderUserCrud.module.scss';
-import { useGetAllUserCrudQuery } from '@/redux/api/crud';
+import {
+	useDeleteUserCrudMutation,
+	useGetAllUserCrudQuery
+} from '@/redux/api/crud';
 import { Button } from '@mantine/core';
 import { IconCopy, IconDatabaseShare, IconTrash } from '@tabler/icons-react';
 
 const RenderUserCrud: FC = () => {
-	const { data, isLoading, error } = useGetAllUserCrudQuery();
+	const { data, isLoading } = useGetAllUserCrudQuery();
+	const [deleteCrud] = useDeleteUserCrudMutation();
 
 	const handleCopyClick = async (url: string) => {
 		try {
@@ -19,6 +23,20 @@ const RenderUserCrud: FC = () => {
 
 	const handleOpenClick = (url: string) => {
 		window.open(url, '_blank');
+	};
+
+	const handleDeleteClick = async (id: string | number) => {
+		await deleteCrud({
+			id: id
+		});
+		// const responseData = await deleteCrud({
+		// 	id: id
+		// });
+		// if ('data' in responseData) {
+		// 	console.log(responseData.data);
+		// } else {
+		// 	console.error('Ошибка в ответе API:', responseData.error);
+		// }
 	};
 
 	return (
@@ -61,7 +79,13 @@ const RenderUserCrud: FC = () => {
 											<IconDatabaseShare className={scss.icon} />
 											Open
 										</Button>
-										<Button className={scss.button} variant="light">
+										<Button
+											className={scss.button}
+											variant="light"
+											onClick={() => {
+												handleDeleteClick(item.id);
+											}}
+										>
 											<IconTrash className={scss.icon} />
 											Delete
 										</Button>

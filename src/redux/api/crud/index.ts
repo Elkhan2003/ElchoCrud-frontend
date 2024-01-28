@@ -9,13 +9,35 @@ const api = index.injectEndpoints({
 			}),
 			providesTags: ['crud']
 		}),
-		createUserCrud: builder.mutation({
-			query: () => ({
+		createUserCrud: builder.mutation<
+			CRUD.CreateCrudResponse,
+			{
+				resource: string;
+			}
+		>({
+			query: ({ resource }) => ({
 				url: '/crud/profile/create',
-				method: 'POST'
+				method: 'POST',
+				body: { resource }
+			}),
+			invalidatesTags: ['crud']
+		}),
+		deleteUserCrud: builder.mutation<
+			CRUD.DeleteCrudResponse,
+			{
+				id: string | number;
+			}
+		>({
+			query: ({ id }) => ({
+				url: `/crud/profile/delete/${id}`,
+				method: 'DELETE'
 			}),
 			invalidatesTags: ['crud']
 		})
 	})
 });
-export const { useGetAllUserCrudQuery, useCreateUserCrudMutation } = api;
+export const {
+	useGetAllUserCrudQuery,
+	useCreateUserCrudMutation,
+	useDeleteUserCrudMutation
+} = api;
