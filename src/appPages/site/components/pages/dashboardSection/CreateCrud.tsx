@@ -62,12 +62,7 @@ const CreateCrud: FC = () => {
 									Create
 								</Button>
 							) : (
-								<Button
-									type="submit"
-									variant="outline"
-									disabled
-									className={scss.button}
-								>
+								<Button variant="outline" disabled className={scss.button}>
 									<Loader size="sm" className={scss.loading} />
 									Loading
 								</Button>
