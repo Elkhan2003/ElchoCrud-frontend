@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
 }
 
 export const SessionProvider: FC<ProtectedRouteProps> = ({ children }) => {
-	const { data, isLoading, error } = useGetMeQuery();
+	const { data } = useGetMeQuery();
 	const pathname = usePathname();
 
 	switch (pathname) {

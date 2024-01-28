@@ -13,7 +13,8 @@ const api = index.injectEndpoints({
 			query: () => ({
 				url: '/crud/profile/create',
 				method: 'POST'
-			})
+			}),
+			invalidatesTags: ['crud']
 		})
 	})
 });

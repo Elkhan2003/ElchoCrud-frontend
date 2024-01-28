@@ -24,6 +24,10 @@
 			}
 
 			.resource_input {
+				// ! just minor fix bug
+				span {
+					text-align: center;
+				}
 				@media (max-width: 900px) {
 					width: 100%;
 				}
