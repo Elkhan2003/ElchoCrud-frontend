@@ -41,14 +41,6 @@ const RenderUserCrud: FC = () => {
 		await deleteCrud({
 			id: id
 		});
-		// const responseData = await deleteCrud({
-		// 	id: id
-		// });
-		// if ('data' in responseData) {
-		// 	console.log(responseData.data);
-		// } else {
-		// 	console.error('Ошибка в ответе API:', responseData.error);
-		// }
 	};
 
 	return (
@@ -56,7 +48,7 @@ const RenderUserCrud: FC = () => {
 			<section className={scss.RenderUserCrud}>
 				<div className={scss.container}>
 					<div className={scss.content}>
-						<h3>Your CRUD list:</h3>
+						<h3 className={scss.title}>Your CRUD list:</h3>
 						<div className={scss.cruds_block}>
 							{data?.results.map((item, index) => (
 								<div key={index + 1} className={scss.crud}>

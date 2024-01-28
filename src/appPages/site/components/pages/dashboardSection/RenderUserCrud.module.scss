@@ -5,6 +5,10 @@
 		margin-inline: auto;
 		padding-inline: 20px;
 		.content {
+			.title {
+				margin-bottom: 10px;
+				font-size: 20px;
+			}
 			.cruds_block {
 				display: flex;
 				flex-direction: column;
@@ -19,9 +23,11 @@
 						gap: 7px;
 						.number {
 							padding: 4.5px 10px;
-							background: #2e2e2e;
+							//background: #2e2e2e;
+							background: -webkit-linear-gradient(-70deg, #6740d9, #996ef8);
 							border-radius: 5px;
 							border: 1px solid #424242;
+							font-weight: 600;
 							color: #c9c9c9;
 
 							cursor: default;
