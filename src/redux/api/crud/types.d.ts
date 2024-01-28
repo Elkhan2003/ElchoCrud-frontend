@@ -9,7 +9,7 @@ namespace CRUD {
 		userId: number;
 		url: string;
 		resource: string;
-		code: [];
+		code: any[];
 		createdAt: string;
 		updatedAt: string;
 	};

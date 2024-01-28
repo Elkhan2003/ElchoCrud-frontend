@@ -28,6 +28,10 @@ const Header: FC = () => {
 	const [isMobile, setIsMobile] = useState(true);
 	const { data, isLoading, error } = useGetMeQuery();
 
+	// console.log(data?.user.isActive);
+	// console.log(isLoading);
+	// console.log(error);
+
 	useEffect(() => {
 		const changeIsMobile = () => {
 			if (window.innerWidth < 768) {

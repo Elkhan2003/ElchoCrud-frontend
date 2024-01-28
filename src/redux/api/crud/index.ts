@@ -1,14 +1,20 @@
 import { api as index } from '..';
 
 const api = index.injectEndpoints({
-	endpoints: (build) => ({
-		getAllUserCrud: build.query<CRUD.GetCrudResponse, CRUD.GetCrudRequest>({
+	endpoints: (builder) => ({
+		getAllUserCrud: builder.query<CRUD.GetCrudResponse, CRUD.GetCrudRequest>({
 			query: () => ({
-				url: 'get/all',
+				url: '/crud/profile/get/all',
 				method: 'GET'
 			}),
 			providesTags: ['crud']
+		}),
+		createUserCrud: builder.mutation({
+			query: () => ({
+				url: '/crud/profile/create',
+				method: 'POST'
+			})
 		})
 	})
 });
-export const { useGetAllUserCrudQuery } = api;
+export const { useGetAllUserCrudQuery, useCreateUserCrudMutation } = api;

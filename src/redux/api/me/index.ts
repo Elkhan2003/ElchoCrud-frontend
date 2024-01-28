@@ -4,7 +4,7 @@ const api = index.injectEndpoints({
 	endpoints: (build) => ({
 		getMe: build.query<GetMeResponse, GetMeRequest>({
 			query: () => ({
-				url: 'auth/user',
+				url: '/auth/user',
 				method: 'GET'
 			}),
 			providesTags: ['me']
