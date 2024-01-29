@@ -3,8 +3,12 @@ import React, { FC, useState } from 'react';
 import scss from './CreateCrud.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Loader, TextInput } from '@mantine/core';
-import { IconDatabasePlus } from '@tabler/icons-react';
-import { useCreateUserCrudMutation } from '@/redux/api/crud';
+import { IconDatabasePlus, IconTrash } from '@tabler/icons-react';
+import {
+	useCreateUserCrudMutation,
+	useDeleteAllUserCrudMutation
+} from '@/redux/api/crud';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 type Inputs = {
 	url: string;
@@ -12,8 +16,10 @@ type Inputs = {
 };
 
 const CreateCrud: FC = () => {
-	const [isLoadingButton, setIsLoadingButton] = useState(false);
+	const [isLoadingCreate, setIsLoadingCreate] = useState(false);
+	const [isLoadingDeleteAll, setIsLoadingDeleteAll] = useState(false);
 	const [createCrud, { error }] = useCreateUserCrudMutation();
+	const [deleteAllCrud] = useDeleteAllUserCrudMutation();
 	const {
 		register,
 		handleSubmit,
@@ -23,7 +29,7 @@ const CreateCrud: FC = () => {
 
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
-			setIsLoadingButton(true);
+			setIsLoadingCreate(true);
 			const responseData = await createCrud({
 				resource: data.resource
 			});
@@ -32,7 +38,7 @@ const CreateCrud: FC = () => {
 				console.error(responseData.error.data.results);
 			}
 			setTimeout(() => {
-				setIsLoadingButton(false);
+				setIsLoadingCreate(false);
 				reset();
 			}, 500);
 		} catch (e) {
@@ -40,8 +46,32 @@ const CreateCrud: FC = () => {
 		}
 	};
 
+	const handleDeleteAllCrud = async () => {
+		try {
+			setIsLoadingDeleteAll(true);
+			await deleteAllCrud();
+			toast(`🦄 API copied!`, {
+				position: 'top-right',
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'dark',
+				transition: Bounce
+			});
+			setTimeout(() => {
+				setIsLoadingDeleteAll(false);
+			}, 500);
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	return (
 		<>
+			<ToastContainer />
 			<section className={scss.CreateCrud}>
 				<div className="container">
 					<div className={scss.content}>
@@ -56,10 +86,27 @@ const CreateCrud: FC = () => {
 								error={!!errors.resource}
 								{...register('resource', { required: true })}
 							/>
-							{!isLoadingButton ? (
+							{!isLoadingCreate ? (
 								<Button type="submit" className={scss.button}>
 									<IconDatabasePlus className={scss.icon} />
 									Create
+								</Button>
+							) : (
+								<Button variant="outline" disabled className={scss.button}>
+									<Loader size="sm" className={scss.loading} />
+									Loading
+								</Button>
+							)}
+							{!isLoadingDeleteAll ? (
+								<Button
+									className={scss.button}
+									variant="light"
+									onClick={() => {
+										handleDeleteAllCrud();
+									}}
+								>
+									<IconTrash className={scss.icon} />
+									DeleteAll
 								</Button>
 							) : (
 								<Button variant="outline" disabled className={scss.button}>

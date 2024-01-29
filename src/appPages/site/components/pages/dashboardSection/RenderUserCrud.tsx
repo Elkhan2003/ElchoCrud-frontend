@@ -17,7 +17,7 @@ const RenderUserCrud: FC = () => {
 		try {
 			await navigator.clipboard.writeText(url);
 			console.log('URL copied to clipboard');
-			toast(`🦄 ≤${resource}≥ API copied!`, {
+			toast(`🦄 "${resource}" API copied!`, {
 				position: 'top-right',
 				autoClose: 3000,
 				hideProgressBar: false,

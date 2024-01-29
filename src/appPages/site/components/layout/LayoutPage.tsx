@@ -18,7 +18,7 @@ const LayoutPage: FC<LayoutPageType> = ({ children }) => {
 		if (status === 'fulfilled' || 'rejected') {
 			setTimeout(() => {
 				setIsPreloader(false);
-			}, 1000);
+			}, 1500);
 		} else {
 			setIsPreloader(true);
 		}

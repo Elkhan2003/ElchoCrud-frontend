@@ -4,7 +4,7 @@ const api = index.injectEndpoints({
 	endpoints: (builder) => ({
 		getAllUserCrud: builder.query<CRUD.GetCrudResponse, CRUD.GetCrudRequest>({
 			query: () => ({
-				url: '/crud/profile/get/all',
+				url: '/crud/profile/getAll',
 				method: 'GET'
 			}),
 			providesTags: ['crud']
@@ -33,11 +33,22 @@ const api = index.injectEndpoints({
 				method: 'DELETE'
 			}),
 			invalidatesTags: ['crud']
+		}),
+		deleteAllUserCrud: builder.mutation<
+			CRUD.DeleteAllCrudResponse,
+			CRUD.DeleteAllCrudRequest
+		>({
+			query: () => ({
+				url: 'crud/profile/deleteAll',
+				method: 'delete'
+			}),
+			invalidatesTags: ['crud']
 		})
 	})
 });
 export const {
 	useGetAllUserCrudQuery,
 	useCreateUserCrudMutation,
-	useDeleteUserCrudMutation
+	useDeleteUserCrudMutation,
+	useDeleteAllUserCrudMutation
 } = api;

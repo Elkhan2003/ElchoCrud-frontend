@@ -21,6 +21,16 @@ namespace CRUD {
 		};
 	};
 
+	type DeleteAllCrudRequest = void;
+
+	type DeleteAllCrudResponse = {
+		success: true;
+		data: {
+			success: boolean;
+			results: Object;
+		};
+	};
+
 	type Results = {
 		id: number;
 		userId: number;
