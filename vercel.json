@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://elchocrud-backend.vercel.app/api/$1"
+      "dest": "https://elchocrud.pro/api/$1"
     }
   ]
 }
