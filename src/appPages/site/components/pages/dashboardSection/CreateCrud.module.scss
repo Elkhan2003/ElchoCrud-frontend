@@ -36,8 +36,8 @@
 			}
 
 			.button {
-				width: 100%;
-				max-width: 120px;
+				width: 100vh;
+				max-width: 125px;
 				.icon {
 					margin-right: 5px;
 					$icon_size: 18px;
@@ -46,7 +46,7 @@
 				}
 
 				.loading {
-					margin-right: 5px;
+					margin-right: 4px;
 				}
 			}
 		}

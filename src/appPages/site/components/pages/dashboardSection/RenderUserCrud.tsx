@@ -1,15 +1,18 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import scss from './RenderUserCrud.module.scss';
 import {
 	useDeleteUserCrudMutation,
 	useGetAllUserCrudQuery
 } from '@/redux/api/crud';
-import { Button } from '@mantine/core';
+import { Button, Loader } from '@mantine/core';
 import { IconCopy, IconDatabaseShare, IconTrash } from '@tabler/icons-react';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const RenderUserCrud: FC = () => {
+	const [isLoadingDelete, setIsLoadingDelete] = useState<
+		Record<string, boolean>
+	>({});
 	const { data, isLoading } = useGetAllUserCrudQuery();
 	const [deleteCrud] = useDeleteUserCrudMutation();
 
@@ -38,9 +41,14 @@ const RenderUserCrud: FC = () => {
 	};
 
 	const handleDeleteClick = async (id: string | number) => {
-		await deleteCrud({
-			id: id
-		});
+		try {
+			setIsLoadingDelete((prev) => ({ ...prev, [id]: true }));
+			await deleteCrud({
+				id: id
+			});
+		} catch (error) {
+			console.error('Error deleting CRUD:', error);
+		}
 	};
 
 	return (
@@ -84,16 +92,27 @@ const RenderUserCrud: FC = () => {
 											<IconDatabaseShare className={scss.icon} />
 											Open
 										</Button>
-										<Button
-											className={scss.button}
-											variant="light"
-											onClick={() => {
-												handleDeleteClick(item.id);
-											}}
-										>
-											<IconTrash className={scss.icon} />
-											Delete
-										</Button>
+										{!isLoadingDelete[item.id] ? (
+											<Button
+												className={scss.button}
+												variant="light"
+												onClick={() => {
+													handleDeleteClick(item.id);
+												}}
+											>
+												<IconTrash className={scss.icon} />
+												Delete
+											</Button>
+										) : (
+											<Button
+												variant="outline"
+												disabled
+												className={scss.button}
+											>
+												<Loader size="xs" className={scss.loading} />
+												Delete
+											</Button>
+										)}
 									</div>
 								</div>
 							))}

@@ -76,8 +76,8 @@ const CreateCrud: FC = () => {
 								</Button>
 							) : (
 								<Button variant="outline" disabled className={scss.button}>
-									<Loader size="sm" className={scss.loading} />
-									Loading
+									<Loader size="xs" className={scss.loading} />
+									Create
 								</Button>
 							)}
 							{!isLoadingDeleteAll ? (
@@ -93,8 +93,8 @@ const CreateCrud: FC = () => {
 								</Button>
 							) : (
 								<Button variant="outline" disabled className={scss.button}>
-									<Loader size="sm" className={scss.loading} />
-									Loading
+									<Loader size="xs" className={scss.loading} />
+									DeleteAll
 								</Button>
 							)}
 						</form>
