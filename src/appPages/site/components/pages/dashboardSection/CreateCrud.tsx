@@ -8,7 +8,6 @@ import {
 	useCreateUserCrudMutation,
 	useDeleteAllUserCrudMutation
 } from '@/redux/api/crud';
-import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 type Inputs = {
 	url: string;
