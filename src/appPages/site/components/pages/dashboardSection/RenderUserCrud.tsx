@@ -62,7 +62,15 @@ const RenderUserCrud: FC = () => {
 								<div key={index + 1} className={scss.crud}>
 									<div className={scss.number_url}>
 										<p className={scss.number}>{index + 1}</p>
-										<p className={scss.url}>
+										<p
+											className={scss.url}
+											onClick={() =>
+												handleCopyClick(
+													`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+													item.resource
+												)
+											}
+										>
 											{process.env.NEXT_PUBLIC_API_URL}/api/v1/{item.url}/
 											{item.resource}
 										</p>

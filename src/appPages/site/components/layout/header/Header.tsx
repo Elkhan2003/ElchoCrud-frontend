@@ -10,6 +10,7 @@ import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
 import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
 import { useGetMeQuery } from '@/redux/api/me';
 import { usePathname } from 'next/navigation';
+import { IconKey } from '@tabler/icons-react';
 // const font = Permanent_Marker({ weight: '400', subsets: ['latin'] });
 
 const links = [
@@ -119,7 +120,9 @@ const Header: FC = () => {
 									/>
 								) : (
 									<Link href="/login">
-										<Button variant="outline">Login</Button>
+										<Button className={scss.login_button}>
+											<IconKey className={scss.icon} /> Login
+										</Button>
 									</Link>
 								)}
 							</div>

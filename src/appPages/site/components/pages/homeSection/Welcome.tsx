@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
+import Link from 'next/link';
 import scss from './Welcome.module.scss';
+import Image from 'next/image';
+import girl from '@/assets/girl.png';
 
 const Welcome: FC = () => {
 	return (
@@ -7,21 +10,33 @@ const Welcome: FC = () => {
 			<section className={scss.Welcome}>
 				<div className="container">
 					<div className={scss.content}>
-						<div>
-							<h1>
-								Note: Service still in development. Instabilities are possible.
+						<div className={scss.left}>
+							<h1 className={scss.title}>
+								Explore the future of the <span>ElchoCrud</span>
 							</h1>
-							<h1>CreateCrud</h1>
-							<h2>
-								Build web or mobile applications performing CRUD operations with
-								<strong>no back-end code.</strong>
-							</h2>
+							<p className={scss.text}>
+								{/* eslint-disable-next-line react/no-unescaped-entities */}
+								Let's explore and create your experience with ElchoCrud.
+							</p>
+							<div className={scss.buttons}>
+								<Link href={'/dashboard'} className={scss.bg}>
+									Get Started
+								</Link>
+								<Link href={'/dashboard'} className={scss.no_bg}>
+									Explore Now
+								</Link>
+							</div>
 						</div>
-						{/*<div>https://crudcrud.com/api/ea751daef1fa4d6d9cf45021e433faab</div>*/}
-						<p>
-							Your REST endpoint is up and ready to receive GET, POST, PUT and
-							DELETE requests.
-						</p>
+						<div className={scss.right}>
+							<Image
+								className={scss.girl_photo}
+								src={girl}
+								width={600}
+								height={600}
+								priority={true}
+								alt={'girl'}
+							/>
+						</div>
 					</div>
 				</div>
 			</section>

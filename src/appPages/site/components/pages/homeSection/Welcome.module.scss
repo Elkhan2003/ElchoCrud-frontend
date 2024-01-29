@@ -1,2 +1,119 @@
 .Welcome {
+	padding-top: 40px;
+	.content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.left {
+			position: relative;
+			width: 100%;
+			max-width: 615px;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: -500px;
+				z-index: -1;
+
+				width: 886px;
+				height: 896px;
+				flex-shrink: 0;
+
+				border-radius: 896px;
+				background: radial-gradient(
+					40.17% 39.79% at 50% 50%,
+					rgba(170, 20, 240, 0.28) 0%,
+					rgba(170, 20, 240, 0) 100%
+				);
+			}
+			.title {
+				margin-bottom: 20px;
+				color: #fff;
+				font-size: 60px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 68px;
+
+				span {
+					background: var(
+						--2,
+						linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
+					);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+			.text {
+				margin-bottom: 50px;
+				width: 100%;
+				max-width: 450px;
+
+				color: #fff;
+				font-size: 20px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+			}
+			.buttons {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 20px;
+				a {
+					padding: 14px 25px;
+
+					color: #fff;
+					font-size: 20px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+
+					border: none;
+					outline: none;
+					background: transparent;
+					border-radius: 5px;
+				}
+
+				.bg {
+					background: var(
+						--3,
+						linear-gradient(97deg, #d10ed1 12.04%, #10a3da 81.84%)
+					);
+				}
+
+				.no_bg {
+					border: 1px solid var(--3, #d10ed1);
+				}
+			}
+		}
+
+		.right {
+			position: relative;
+			.girl_photo {
+				width: 100%;
+				max-width: 566px;
+				height: auto;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				left: 100px;
+				top: -200px;
+				z-index: -1;
+
+				width: 886px;
+				height: 896px;
+				flex-shrink: 0;
+
+				border-radius: 896px;
+				background: radial-gradient(
+					40.17% 39.79% at 50% 50%,
+					rgba(170, 20, 240, 0.28) 0%,
+					rgba(170, 20, 240, 0) 100%
+				);
+			}
+		}
+	}
 }
