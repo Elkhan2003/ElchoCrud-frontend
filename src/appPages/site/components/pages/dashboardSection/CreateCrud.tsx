@@ -47,31 +47,15 @@ const CreateCrud: FC = () => {
 	};
 
 	const handleDeleteAllCrud = async () => {
-		try {
-			setIsLoadingDeleteAll(true);
-			await deleteAllCrud();
-			toast(`🦄 API copied!`, {
-				position: 'top-right',
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: 'dark',
-				transition: Bounce
-			});
-			setTimeout(() => {
-				setIsLoadingDeleteAll(false);
-			}, 500);
-		} catch (e) {
-			console.log(e);
-		}
+		setIsLoadingDeleteAll(true);
+		await deleteAllCrud();
+		setTimeout(() => {
+			setIsLoadingDeleteAll(false);
+		}, 500);
 	};
 
 	return (
 		<>
-			<ToastContainer />
 			<section className={scss.CreateCrud}>
 				<div className="container">
 					<div className={scss.content}>
