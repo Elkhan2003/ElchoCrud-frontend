@@ -56,8 +56,8 @@ const elements = [
 ];
 
 const AboutUs: FC = () => {
-	const rows = elements.map((element) => (
-		<Table.Tr key={element.url}>
+	const rows = elements.map((element, index) => (
+		<Table.Tr key={index}>
 			<Table.Td>{element.action}</Table.Td>
 			<Table.Td>{element.http}</Table.Td>
 			<Table.Td>{element.payload}</Table.Td>
