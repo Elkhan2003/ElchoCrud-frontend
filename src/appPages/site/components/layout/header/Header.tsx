@@ -33,8 +33,9 @@ const links = [
 ];
 
 const Header: FC = () => {
-	const pathname = usePathname();
+	const [headerScroll, setHeaderScroll] = useState<boolean>(false);
 	const [isMobile, setIsMobile] = useState(true);
+	const pathname = usePathname();
 	const { data, isLoading, error } = useGetMeQuery();
 
 	// console.log(data?.user.isActive);
@@ -42,11 +43,27 @@ const Header: FC = () => {
 	// console.log(error);
 
 	useEffect(() => {
+		const changeBackground = () => {
+			if (window.scrollY >= 10) {
+				setHeaderScroll(true);
+			} else {
+				setHeaderScroll(false);
+			}
+		};
+
+		changeBackground();
+		window.addEventListener('scroll', changeBackground);
+
+		return () => {
+			window.removeEventListener('scroll', changeBackground);
+		};
+	}, []);
+
+	useEffect(() => {
 		const changeIsMobile = () => {
 			if (window.innerWidth < 768) {
 				setIsMobile(true);
 			} else {
-				// ! testing
 				setIsMobile(false);
 			}
 		};
@@ -68,12 +85,19 @@ const Header: FC = () => {
 	return (
 		<>
 			<header className={scss.header}>
-				<div className={`${scss.scroll}`}>
+				<div
+					className={
+						headerScroll ? `${scss.scroll} ${scss.active}` : `${scss.scroll}`
+					}
+				>
 					<div className="container">
 						<div className={scss.content}>
 							<div className={scss.left}>
 								<div className={scss.logo}>
-									<a href="#" className={`${scss.logo_link}`}>
+									<a
+										href={process.env.NEXT_PUBLIC_API_URL}
+										className={`${scss.logo_link}`}
+									>
 										<Image
 											className={scss.icon}
 											src={logo}

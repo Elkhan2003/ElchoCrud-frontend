@@ -58,7 +58,9 @@ const CreateCrud: FC = () => {
 			<section className={scss.CreateCrud}>
 				<div className="container">
 					<div className={scss.content}>
-						<h1 className={scss.title}>Create an Endpoint</h1>
+						<h1 className={scss.title}>
+							Create an <span>Endpoint</span>
+						</h1>
 						<form className={scss.create_url} onSubmit={handleSubmit(onSubmit)}>
 							<p className={scss.url}>
 								{process.env.NEXT_PUBLIC_API_URL}/api/v1/generateRandomToken/

@@ -1,10 +1,21 @@
 .CreateCrud {
+	padding-top: 10px;
 	padding-bottom: 30px;
 	.content {
 		.title {
 			margin-bottom: 10px;
 			font-size: 30px;
 			text-align: center;
+
+			span {
+				background: var(
+					--2,
+					linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
+				);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
 		}
 		.create_url {
 			display: flex;

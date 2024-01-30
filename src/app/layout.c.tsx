@@ -35,7 +35,7 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 
 	return (
 		<>
-			<Snowfall snowflakeCount={snowCount} />
+			<Snowfall style={{ position: 'fixed' }} snowflakeCount={snowCount} />
 			<ColorSchemeScript defaultColorScheme="dark" />
 			<MantineProvider defaultColorScheme="dark" theme={theme}>
 				<ReduxProvider>
