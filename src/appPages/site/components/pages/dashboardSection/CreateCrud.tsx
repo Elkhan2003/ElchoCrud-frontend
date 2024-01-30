@@ -39,7 +39,7 @@ const CreateCrud: FC = () => {
 			setTimeout(() => {
 				setIsLoadingCreate(false);
 				reset();
-			}, 500);
+			}, 700);
 		} catch (e) {
 			console.error(e);
 		}
@@ -50,7 +50,7 @@ const CreateCrud: FC = () => {
 		await deleteAllCrud();
 		setTimeout(() => {
 			setIsLoadingDeleteAll(false);
-		}, 500);
+		}, 700);
 	};
 
 	return (
