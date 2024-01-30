@@ -21,6 +21,14 @@ const links = [
 	{
 		label: 'Dashboard',
 		href: '/dashboard'
+	},
+	{
+		label: 'Statistics',
+		href: '/statistics'
+	},
+	{
+		label: 'Rating of users',
+		href: '/rating'
 	}
 ];
 

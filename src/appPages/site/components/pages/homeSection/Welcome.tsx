@@ -3,6 +3,7 @@ import Link from 'next/link';
 import scss from './Welcome.module.scss';
 import Image from 'next/image';
 import girl from '@/assets/girl.png';
+import AnimatedNumbers from '@/appPages/site/components/framerMotion/AnimatedNumbers';
 
 const Welcome: FC = () => {
 	return (
@@ -25,6 +26,29 @@ const Welcome: FC = () => {
 								<Link href={'/dashboard'} className={scss.no_bg}>
 									Explore Now
 								</Link>
+							</div>
+							<div className={scss.stats}>
+								<div className={scss.stat}>
+									<h3>
+										<AnimatedNumbers value={290} />
+										K+
+									</h3>
+									<p>Requests</p>
+								</div>
+								<div className={scss.stat}>
+									<h3>
+										<AnimatedNumbers value={40} />
+										K+
+									</h3>
+									<p>Users</p>
+								</div>
+								<div className={scss.stat}>
+									<h3>
+										<AnimatedNumbers value={72} />
+										K+
+									</h3>
+									<p>Requests per day</p>
+								</div>
 							</div>
 						</div>
 						<div className={scss.right}>

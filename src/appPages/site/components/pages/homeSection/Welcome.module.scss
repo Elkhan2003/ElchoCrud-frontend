@@ -57,6 +57,7 @@
 				line-height: normal;
 			}
 			.buttons {
+				margin-bottom: 40px;
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
@@ -87,10 +88,36 @@
 					border: 1px solid var(--3, #d10ed1);
 				}
 			}
+			.stats {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 70px;
+				.stat {
+					h3 {
+						width: 70px;
+						color: #fff;
+						font-size: 24px;
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+					}
+					p {
+						color: #fff;
+						font-size: 18px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: normal;
+					}
+				}
+			}
 		}
 
 		.right {
 			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			.girl_photo {
 				width: 566px;
 				height: 568px;

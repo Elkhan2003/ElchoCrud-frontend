@@ -1,0 +1,22 @@
+.AboutUs {
+	padding-top: 70px;
+	.content {
+		.title {
+			text-align: center;
+			font-size: 35px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+
+			span {
+				background: var(
+					--2,
+					linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
+				);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+	}
+}
