@@ -19,6 +19,21 @@ type User = {
 
 type UserRole = 'ADMIN' | 'USER';
 
+type Rating = {
+	userId: number;
+	firstName: string;
+	lastName: string;
+	photo: string;
+	totalReq: number;
+	get: number | null;
+	post: number | null;
+	put: number | null;
+	patch: number | null;
+	delete: number | null;
+	createdAt: string;
+	updatedAt: string;
+};
+
 type NotificationObject = {
 	id: number;
 	content: string;

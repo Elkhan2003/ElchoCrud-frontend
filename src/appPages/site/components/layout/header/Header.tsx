@@ -1,7 +1,6 @@
 'use client';
 import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
-// import { Permanent_Marker } from 'next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@mantine/core';
@@ -11,7 +10,6 @@ import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
 import { useGetMeQuery } from '@/redux/api/me';
 import { usePathname } from 'next/navigation';
 import { IconKey } from '@tabler/icons-react';
-// const font = Permanent_Marker({ weight: '400', subsets: ['latin'] });
 
 const links = [
 	{
@@ -43,7 +41,7 @@ const Header: FC = () => {
 	// console.log(error);
 
 	useEffect(() => {
-		const changeBackground = () => {
+		const changeHeader = () => {
 			if (window.scrollY >= 10) {
 				setHeaderScroll(true);
 			} else {
@@ -51,11 +49,11 @@ const Header: FC = () => {
 			}
 		};
 
-		changeBackground();
-		window.addEventListener('scroll', changeBackground);
+		changeHeader();
+		window.addEventListener('scroll', changeHeader);
 
 		return () => {
-			window.removeEventListener('scroll', changeBackground);
+			window.removeEventListener('scroll', changeHeader);
 		};
 	}, []);
 

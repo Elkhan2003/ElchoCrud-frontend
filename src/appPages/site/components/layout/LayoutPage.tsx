@@ -3,7 +3,6 @@ import React, { FC, ReactNode, useEffect, useState } from 'react';
 import scss from './LayoutPage.module.scss';
 import Header from '@/appPages/site/components/layout/header/Header';
 import Footer from '@/appPages/site/components/layout/footer/Footer';
-import { useGetMeQuery } from '@/redux/api/me';
 import Preloader from '@/appPages/site/components/preLoader/Preloader';
 
 interface LayoutPageType {
@@ -12,17 +11,12 @@ interface LayoutPageType {
 
 const LayoutPage: FC<LayoutPageType> = ({ children }) => {
 	const [isPreLoader, setIsPreloader] = useState(true);
-	const { status } = useGetMeQuery();
 
 	useEffect(() => {
-		if (status === 'fulfilled' || 'rejected') {
-			setTimeout(() => {
-				setIsPreloader(false);
-			}, 1500);
-		} else {
-			setIsPreloader(true);
-		}
-	}, [status]);
+		setTimeout(() => {
+			setIsPreloader(false);
+		}, 1700);
+	}, []);
 
 	return (
 		<>

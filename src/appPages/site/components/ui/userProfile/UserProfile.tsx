@@ -81,7 +81,7 @@ const UserProfile: FC<UserProfileType> = ({
 				<Menu.Item leftSection={<IconSettings className={scss.svg_icon} />}>
 					Settings
 				</Menu.Item>
-				<Menu.Item
+				{/* <Menu.Item
 					leftSection={<IconMessageCircle className={scss.svg_icon} />}
 				>
 					Messages
@@ -98,22 +98,17 @@ const UserProfile: FC<UserProfileType> = ({
 					}
 				>
 					Search
-				</Menu.Item>
+				</Menu.Item> */}
 
 				<Menu.Divider />
 
 				<Menu.Label>Danger zone</Menu.Label>
 				<Menu.Item
+					color="red"
 					leftSection={<IconLogout className={scss.svg_icon} />}
 					onClick={logout}
 				>
 					Log Out
-				</Menu.Item>
-				<Menu.Item
-					color="red"
-					leftSection={<IconTrash className={scss.svg_icon} />}
-				>
-					Delete my account
 				</Menu.Item>
 			</Menu.Dropdown>
 		</Menu>

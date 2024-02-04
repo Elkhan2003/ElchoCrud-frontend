@@ -21,11 +21,6 @@ export const SessionProvider: FC<ProtectedRouteProps> = ({ children }) => {
 		// 		redirect('/login');
 		// 	}
 		// 	break;
-		// case '/price':
-		// 	if (!data?.user) {
-		// 		redirect('/login');
-		// 	}
-		// 	break;
 		default:
 			break;
 	}

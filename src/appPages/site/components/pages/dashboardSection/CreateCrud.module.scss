@@ -4,8 +4,18 @@
 	.content {
 		.title {
 			margin-bottom: 10px;
-			font-size: 30px;
 			text-align: center;
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+
+			border-radius: 896px;
+			background: radial-gradient(
+				40.17% 39.79% at 50% 50%,
+				rgba(170, 20, 240, 0.28) 0%,
+				rgba(170, 20, 240, 0) 100%
+			);
 
 			span {
 				background: var(

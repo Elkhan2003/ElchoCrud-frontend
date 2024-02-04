@@ -1,18 +1,25 @@
-.RatingUsers {
-	margin-top: 200px;
+.flex_user {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
 
-	border-radius: 896px;
-	background: radial-gradient(
-		40.17% 39.79% at 50% 50%,
-		rgba(170, 20, 240, 0.28) 0%,
-		rgba(170, 20, 240, 0) 100%
-	);
+	.photo {
+		width: 100%;
+		max-width: 25px;
+		height: auto;
+		border-radius: 50%;
+		color: #161616;
+	}
+}
+
+.RatingUsers {
+	padding-top: 10px;
 	.content {
 		.title {
-			padding-block: 100px;
-
+			margin-bottom: 30px;
 			text-align: center;
-			font-size: 35px;
+			font-size: 30px;
 			font-style: normal;
 			font-weight: 600;
 			line-height: normal;
@@ -20,7 +27,7 @@
 			border-radius: 896px;
 			background: radial-gradient(
 				40.17% 39.79% at 50% 50%,
-				rgba(170, 20, 240, 0.1) 0%,
+				rgba(170, 20, 240, 0.28) 0%,
 				rgba(170, 20, 240, 0) 100%
 			);
 

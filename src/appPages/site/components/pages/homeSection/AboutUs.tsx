@@ -74,7 +74,7 @@ const AboutUs: FC = () => {
 						<h1 className={scss.title}>
 							What is <span>ElchoCrud</span>
 						</h1>
-						<Table>
+						<Table striped stripedColor="#181818">
 							<Table.Thead>
 								<Table.Tr>
 									<Table.Th>Action</Table.Th>
