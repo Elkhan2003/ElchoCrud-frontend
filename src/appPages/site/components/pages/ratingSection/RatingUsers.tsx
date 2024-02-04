@@ -91,6 +91,8 @@ const RatingUsers = () => {
 								<Table
 									striped
 									stripedColor="#181818"
+									highlightOnHover
+									highlightOnHoverColor="#6640d996"
 									withTableBorder
 									withColumnBorders
 								>
