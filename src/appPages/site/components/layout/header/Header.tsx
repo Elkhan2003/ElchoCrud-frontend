@@ -59,7 +59,7 @@ const Header: FC = () => {
 
 	useEffect(() => {
 		const changeIsMobile = () => {
-			if (window.innerWidth < 768) {
+			if (window.innerWidth < 1000) {
 				setIsMobile(true);
 			} else {
 				setIsMobile(false);

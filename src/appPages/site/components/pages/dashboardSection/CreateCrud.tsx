@@ -74,12 +74,12 @@ const CreateCrud: FC = () => {
 							{!isLoadingCreate ? (
 								<Button type="submit" className={scss.button}>
 									<IconDatabasePlus className={scss.icon} />
-									Create
+									<span className={scss.text}>Create</span>
 								</Button>
 							) : (
 								<Button variant="outline" disabled className={scss.button}>
 									<Loader size="xs" className={scss.loading} />
-									Create
+									<span className={scss.text}>Create</span>
 								</Button>
 							)}
 							{!isLoadingDeleteAll ? (
@@ -91,12 +91,12 @@ const CreateCrud: FC = () => {
 									}}
 								>
 									<IconTrash className={scss.icon} />
-									DeleteAll
+									<span className={scss.text}>DeleteAll</span>
 								</Button>
 							) : (
 								<Button variant="outline" disabled className={scss.button}>
 									<Loader size="xs" className={scss.loading} />
-									DeleteAll
+									<span className={scss.text}>DeleteAll</span>
 								</Button>
 							)}
 						</form>

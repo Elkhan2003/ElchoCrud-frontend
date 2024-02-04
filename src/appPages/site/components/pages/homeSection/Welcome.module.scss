@@ -35,6 +35,10 @@
 				font-weight: 600;
 				line-height: 68px;
 
+				@media (max-width: 767px) {
+					font-size: 40px;
+				}
+
 				span {
 					background: var(
 						--2,
@@ -75,6 +79,11 @@
 					outline: none;
 					background: transparent;
 					border-radius: 5px;
+
+					@media (max-width: 767px) {
+						padding: 10px 20px;
+						font-size: 14px;
+					}
 				}
 
 				.bg {
@@ -93,6 +102,10 @@
 				justify-content: flex-start;
 				align-items: center;
 				gap: 70px;
+
+				@media (max-width: 767px) {
+					gap: 30px;
+				}
 				.stat {
 					h3 {
 						width: 70px;
@@ -101,6 +114,10 @@
 						font-style: normal;
 						font-weight: 500;
 						line-height: normal;
+
+						@media (max-width: 767px) {
+							font-size: 18px;
+						}
 					}
 					p {
 						color: #fff;
@@ -108,6 +125,10 @@
 						font-style: normal;
 						font-weight: 400;
 						line-height: normal;
+
+						@media (max-width: 767px) {
+							font-size: 14px;
+						}
 					}
 				}
 			}
@@ -118,6 +139,11 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			@media (max-width: 1000px) {
+				display: none;
+			}
+
 			.girl_photo {
 				width: 566px;
 				height: 568px;

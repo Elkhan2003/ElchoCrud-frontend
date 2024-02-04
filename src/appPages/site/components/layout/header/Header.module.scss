@@ -15,25 +15,25 @@
 
 		@media (max-width: 767px) {
 			padding-block: 0px;
-			backdrop-filter: none;
-			-webkit-backdrop-filter: none;
-			background: #18131de0;
-			box-shadow: none;
+
+			backdrop-filter: blur(7px);
+			-webkit-backdrop-filter: blur(7px);
+			box-shadow: 0px 0px 5px #3f3f3f;
 		}
 
 		&.active {
-			padding-block: 1px;
+			padding-block: 0px;
 
 			backdrop-filter: blur(7px);
 			-webkit-backdrop-filter: blur(7px);
 			box-shadow: 0px 0px 5px #3f3f3f;
 
-			@media (max-width: 767px) {
-				backdrop-filter: none;
-				-webkit-backdrop-filter: none;
-				background: #18131de0;
-				box-shadow: none;
-			}
+			// @media (max-width: 767px) {
+			// 	backdrop-filter: none;
+			// 	-webkit-backdrop-filter: none;
+			// 	background: #18131de0;
+			// 	box-shadow: none;
+			// }
 		}
 
 		.content {
