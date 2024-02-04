@@ -1,7 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 import scss from './AboutUs.module.scss';
-import { Table } from '@mantine/core';
+import { ScrollArea, Box, Table } from '@mantine/core';
 
 const elements = [
 	{
@@ -74,18 +74,23 @@ const AboutUs: FC = () => {
 						<h1 className={scss.title}>
 							What is <span>ElchoCrud</span>
 						</h1>
-						<Table striped stripedColor="#181818">
-							<Table.Thead>
-								<Table.Tr>
-									<Table.Th>Action</Table.Th>
-									<Table.Th>HTTP</Table.Th>
-									<Table.Th>Payload</Table.Th>
-									<Table.Th>URL</Table.Th>
-									<Table.Th>Description</Table.Th>
-								</Table.Tr>
-							</Table.Thead>
-							<Table.Tbody>{rows}</Table.Tbody>
-						</Table>
+
+						<ScrollArea type="always" offsetScrollbars classNames={scss}>
+							<Box w={1240}>
+								<Table striped stripedColor="#181818">
+									<Table.Thead>
+										<Table.Tr>
+											<Table.Th>Action</Table.Th>
+											<Table.Th>HTTP</Table.Th>
+											<Table.Th>Payload</Table.Th>
+											<Table.Th>URL</Table.Th>
+											<Table.Th>Description</Table.Th>
+										</Table.Tr>
+									</Table.Thead>
+									<Table.Tbody>{rows}</Table.Tbody>
+								</Table>
+							</Box>
+						</ScrollArea>
 					</div>
 				</div>
 			</section>

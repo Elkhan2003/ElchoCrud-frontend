@@ -11,12 +11,10 @@
 	.scroll {
 		padding-block: 10px;
 		// transition: padding 0.5s, background 0.2s;
-		transition:
-			padding 0.5s,
-			background 0.2s;
+		transition: padding 0.5s, background 0.2s;
 
 		@media (max-width: 767px) {
-			padding-block: 5px;
+			padding-block: 0px;
 			backdrop-filter: none;
 			-webkit-backdrop-filter: none;
 			background: #18131de0;
@@ -58,7 +56,8 @@
 						color: #dcdcdc;
 
 						@media (max-width: 768px) {
-							font-size: 20px;
+							padding-block: 12px;
+							font-size: 18px;
 						}
 
 						span {
@@ -74,7 +73,7 @@
 							height: auto;
 
 							@media (max-width: 768px) {
-								width: 35px;
+								width: 30px;
 							}
 						}
 					}

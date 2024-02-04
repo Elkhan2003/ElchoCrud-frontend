@@ -2,7 +2,7 @@
 import React from 'react';
 import scss from './RatingUsers.module.scss';
 import Image from 'next/image';
-import { Box, ScrollArea, Table } from '@mantine/core';
+import { ScrollArea, Box, Table } from '@mantine/core';
 import { useGetRatingQuery } from '@/redux/api/rating';
 import AnimatedNumbers from '../../framerMotion/AnimatedNumbers';
 
@@ -80,7 +80,7 @@ const RatingUsers = () => {
 						<h1 className={scss.title}>
 							Rating of <span>Users</span>
 						</h1>
-						<ScrollArea type="always" offsetScrollbars>
+						<ScrollArea type="always" offsetScrollbars classNames={scss}>
 							<Box w={1240}>
 								<Table
 									striped
