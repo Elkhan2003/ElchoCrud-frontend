@@ -18,6 +18,8 @@ const RatingUsers = () => {
 					<span className={scss.secondPlaceNumber}>{index + 1}</span>
 				) : index === 2 ? (
 					<span className={scss.thirdPlaceNumber}>{index + 1}</span>
+				) : item.role === 'ADMIN' ? (
+					<span className={scss.AdminPlaceNumber}>{index + 1}</span>
 				) : (
 					<span>{index + 1}</span>
 				)}
@@ -41,6 +43,10 @@ const RatingUsers = () => {
 						</span>
 					) : index === 2 ? (
 						<span className={scss.thirdPlaceName}>
+							{item.firstName} {item.lastName}
+						</span>
+					) : item.role === 'ADMIN' ? (
+						<span className={scss.AdminPlaceName}>
 							{item.firstName} {item.lastName}
 						</span>
 					) : (

@@ -49,6 +49,17 @@
 		font-size: 22px;
 	}
 }
+.AdminPlaceNumber {
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '👑';
+		left: 12px;
+		top: 40%;
+		transform: translateY(-50%);
+		font-size: 19px;
+	}
+}
 
 .flex_user {
 	display: flex;
@@ -80,6 +91,20 @@
 		font-weight: 600;
 		text-shadow: 0px 0px 1.5px #eb680b;
 		color: #eb680b;
+	}
+
+	.AdminPlaceName {
+		font-weight: 700;
+		// text-shadow: 0px 0px 25px #6740d9;
+		// color: #6740d9;
+
+		background: var(
+			--2,
+			linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 }
 

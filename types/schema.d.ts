@@ -23,6 +23,7 @@ type Rating = {
 	userId: number;
 	firstName: string;
 	lastName: string;
+	role: string;
 	photo: string;
 	totalReq: number;
 	get: number | null;
