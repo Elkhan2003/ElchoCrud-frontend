@@ -1,3 +1,37 @@
+.firstPlaceNumber {
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '🏆';
+		left: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 20px;
+	}
+}
+.secondPlaceNumber {
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '🥈';
+		left: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 22px;
+	}
+}
+.thirdPlaceNumber {
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '🥉';
+		left: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 22px;
+	}
+}
+
 .flex_user {
 	display: flex;
 	justify-content: flex-start;
@@ -6,10 +40,28 @@
 
 	.photo {
 		width: 100%;
-		max-width: 25px;
+		max-width: 27px;
 		height: auto;
 		border-radius: 50%;
 		color: #161616;
+	}
+
+	.firstPlaceName {
+		font-weight: 600;
+		text-shadow: 0px 0px 1.5px #ffc930;
+		color: #ffc930;
+	}
+
+	.secondPlaceName {
+		font-weight: 600;
+		text-shadow: 0px 0px 1.5px #cccccc;
+		color: #cccccc;
+	}
+
+	.thirdPlaceName {
+		font-weight: 600;
+		text-shadow: 0px 0px 1.5px #eb680b;
+		color: #eb680b;
 	}
 }
 
