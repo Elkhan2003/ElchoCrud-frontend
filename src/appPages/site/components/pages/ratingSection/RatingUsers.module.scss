@@ -53,7 +53,8 @@
 	position: relative;
 	&::after {
 		position: absolute;
-		content: '👑';
+		// content: '👑';
+		content: '';
 		left: 12px;
 		top: 40%;
 		transform: translateY(-50%);
