@@ -57,7 +57,7 @@ const RatingUsers = () => {
 				</div>
 			</Table.Td>
 			<Table.Td>
-				{item.get! ? <AnimatedNumbers value={item.totalReq!} /> : 0}
+				{item.totalReq! ? <AnimatedNumbers value={item.totalReq!} /> : 0}
 			</Table.Td>
 			<Table.Td>
 				{item.get! ? <AnimatedNumbers value={item.get!} /> : 0}
