@@ -58,7 +58,7 @@ const RenderUserCrud: FC = () => {
 					<div className={scss.content}>
 						<h3 className={scss.title}>Your CRUD list:</h3>
 						<ScrollArea type="always" offsetScrollbars classNames={scss}>
-							<Box w={1060}>
+							<Box w={1060} style={{ paddingBottom: 15, paddingRight: 15 }}>
 								<div className={scss.cruds_block}>
 									{data?.results.map((item, index) => (
 										<div key={index + 1} className={scss.crud}>

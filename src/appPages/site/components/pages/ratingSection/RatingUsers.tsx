@@ -87,7 +87,7 @@ const RatingUsers = () => {
 							Rating of <span>Users</span>
 						</h1>
 						<ScrollArea type="always" offsetScrollbars classNames={scss}>
-							<Box w={1240}>
+							<Box w={1240} style={{ paddingBottom: 15 }}>
 								<Table
 									striped
 									stripedColor="#181818"
@@ -100,7 +100,9 @@ const RatingUsers = () => {
 										<Table.Tr>
 											<Table.Th>№</Table.Th>
 											<Table.Th>User</Table.Th>
-											<Table.Th>Total Requests</Table.Th>
+											<Table.Th>
+												Total R. <span style={{ color: 'red' }}>(Ex. GET)</span>
+											</Table.Th>
 											<Table.Th>GET</Table.Th>
 											<Table.Th>POST</Table.Th>
 											<Table.Th>PUT</Table.Th>
