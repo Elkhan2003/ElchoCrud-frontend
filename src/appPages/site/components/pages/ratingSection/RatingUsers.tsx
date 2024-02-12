@@ -87,7 +87,7 @@ const RatingUsers = () => {
 							Rating of <span>Users</span>
 						</h1>
 						<ScrollArea type="always" offsetScrollbars classNames={scss}>
-							<Box w={1240} style={{ paddingBottom: 15 }}>
+							<Box w={1225} style={{ paddingBottom: 15 }}>
 								<Table
 									striped
 									stripedColor="#181818"
