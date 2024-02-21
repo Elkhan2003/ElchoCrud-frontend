@@ -3,7 +3,7 @@ import React, { FC, ReactNode, useEffect, useState } from 'react';
 import scss from './LayoutPage.module.scss';
 import Header from '@/appPages/site/components/layout/header/Header';
 import Footer from '@/appPages/site/components/layout/footer/Footer';
-import Preloader from '@/appPages/site/components/preLoader/Preloader';
+import Preloader from '@/appPages/site/components/ui/preLoader/Preloader';
 
 interface LayoutPageType {
 	children: ReactNode;
