@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import scss from './AuthRightNow.module.scss';
+import scss from './IsAuthRightNow.module.scss';
 
-const AuthRightNow: FC = () => {
+const IsAuthRightNow: FC = () => {
 	return (
 		<>
 			<section className={scss.AuthRightNow}>
@@ -17,4 +17,4 @@ const AuthRightNow: FC = () => {
 		</>
 	);
 };
-export default AuthRightNow;
+export default IsAuthRightNow;
