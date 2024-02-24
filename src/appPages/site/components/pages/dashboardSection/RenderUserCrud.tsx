@@ -2,18 +2,18 @@
 import React, { FC, useState } from 'react';
 import scss from './RenderUserCrud.module.scss';
 import axios from 'axios';
-import {
-	useDeleteUserCrudMutation,
-	useGetAllUserCrudQuery
-} from '@/redux/api/crud';
 import { ScrollArea, Box, Button, Loader } from '@mantine/core';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 import {
 	IconCopy,
 	IconDatabaseShare,
 	IconRefresh,
 	IconTrash
 } from '@tabler/icons-react';
-import { Bounce, toast, ToastContainer } from 'react-toastify';
+import {
+	useDeleteUserCrudMutation,
+	useGetAllUserCrudQuery
+} from '@/redux/api/crud';
 
 const RenderUserCrud: FC = () => {
 	const [isLoadingButtonReset, setIsLoadingButtonReset] = useState<
@@ -29,20 +29,24 @@ const RenderUserCrud: FC = () => {
 		try {
 			await navigator.clipboard.writeText(url);
 			console.log('URL copied to clipboard');
-			toast(`🦄 '${resource}' API copied!`, {
-				position: 'top-right',
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: 'dark',
-				transition: Bounce
-			});
+			notify(`🦄 '${resource}' API copied!`);
 		} catch (err) {
 			console.error('Unable to copy URL to clipboard', err);
 		}
+	};
+
+	const notify = (message: string) => {
+		toast(message, {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'dark',
+			transition: Bounce
+		});
 	};
 
 	const handleOpenClick = (url: string) => {
@@ -59,17 +63,7 @@ const RenderUserCrud: FC = () => {
 			await axios.delete(
 				`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${url}/${resource}`
 			);
-			toast(`🔄 '${resource}' reset successful!`, {
-				position: 'top-right',
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: 'dark',
-				transition: Bounce
-			});
+			notify(`🔄 '${resource}' reset successful!`);
 			setIsLoadingButtonReset((prev) => ({ ...prev, [id]: false }));
 		} catch (error) {
 			console.error('Error reset CRUD:', error);
