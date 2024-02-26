@@ -23,6 +23,7 @@ interface BurgerMenuType {
 	links: { label: string; href: string }[];
 	authLink: string;
 	logout: () => void;
+	handleLinkTrash: () => void;
 }
 
 const BurgerMenu: FC<BurgerMenuType> = ({
@@ -33,6 +34,7 @@ const BurgerMenu: FC<BurgerMenuType> = ({
 	isActive,
 	links,
 	authLink,
+	handleLinkTrash,
 	logout
 }) => {
 	const [_, { toggle }] = useDisclosure();
@@ -86,24 +88,12 @@ const BurgerMenu: FC<BurgerMenuType> = ({
 				<Menu.Item leftSection={<IconSettings className={scss.svg_icon} />}>
 					Settings
 				</Menu.Item>
-				{/* <Menu.Item
-					leftSection={<IconMessageCircle className={scss.svg_icon} />}
-				>
-					Messages
-				</Menu.Item>
-				<Menu.Item leftSection={<IconPhoto className={scss.svg_icon} />}>
-					Gallery
-				</Menu.Item>
 				<Menu.Item
-					leftSection={<IconSearch className={scss.svg_icon} />}
-					rightSection={
-						<Text size="xs" c="dimmed">
-							⌘K
-						</Text>
-					}
+					leftSection={<IconTrash className={scss.svg_icon} />}
+					onClick={handleLinkTrash}
 				>
-					Search
-				</Menu.Item> */}
+					Trash
+				</Menu.Item>
 
 				<Menu.Divider />
 				<Menu.Label>Navigation</Menu.Label>

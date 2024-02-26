@@ -3,13 +3,13 @@ import React, { FC, useEffect, useState } from 'react';
 import scss from './Header.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@mantine/core';
 import logo from '@/assets/logo.png';
 import UserProfile from '@/appPages/site/components/ui/userProfile/UserProfile';
 import BurgerMenu from '@/appPages/site/components/ui/burgerMenu/BurgerMenu';
-import { useGetMeQuery } from '@/redux/api/me';
-import { usePathname } from 'next/navigation';
 import { IconKey } from '@tabler/icons-react';
+import { useGetMeQuery } from '@/redux/api/me';
 
 const links = [
 	{
@@ -34,6 +34,7 @@ const Header: FC = () => {
 	const [headerScroll, setHeaderScroll] = useState<boolean>(false);
 	const [isMobile, setIsMobile] = useState(true);
 	const pathname = usePathname();
+	const router = useRouter();
 	const { data, isLoading, error } = useGetMeQuery();
 
 	// console.log(data?.user.isActive);
@@ -73,6 +74,10 @@ const Header: FC = () => {
 			window.removeEventListener('resize', changeIsMobile);
 		};
 	}, []);
+
+	const handleLinkTrash = () => {
+		router.push('/trash');
+	};
 
 	const logout = () => {
 		window.open(
@@ -138,6 +143,7 @@ const Header: FC = () => {
 										isActive={data?.user.isActive!}
 										links={links}
 										authLink="/login"
+										handleLinkTrash={handleLinkTrash}
 										logout={logout}
 									/>
 								) : data?.user ? (
@@ -146,6 +152,7 @@ const Header: FC = () => {
 										firstName={data?.user.firstName}
 										lastName={data?.user.lastName}
 										email={data?.user.login}
+										handleLinkTrash={handleLinkTrash}
 										logout={logout}
 									/>
 								) : (

@@ -1,0 +1,40 @@
+.TrashList {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	.content {
+		.title {
+			margin-bottom: 30px;
+			text-align: center;
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+
+			border-radius: 896px;
+			background: radial-gradient(
+				40.17% 39.79% at 50% 50%,
+				rgba(170, 20, 240, 0.28) 0%,
+				rgba(170, 20, 240, 0) 100%
+			);
+
+			@media (max-width: 767px) {
+				font-size: 24px;
+			}
+
+			span {
+				background: var(
+					--2,
+					linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
+				);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+
+		.items {
+			.item {
+			}
+		}
+	}
+}

@@ -12,12 +12,10 @@ import {
 import {
 	IconChevronRight,
 	IconLogout,
-	IconMessageCircle,
-	IconPhoto,
-	IconSearch,
 	IconSettings,
 	IconTrash
 } from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
 
 interface UserProfileType {
 	image: string;
@@ -25,6 +23,7 @@ interface UserProfileType {
 	lastName: string;
 	email: string;
 	logout: () => void;
+	handleLinkTrash: () => void;
 }
 
 const UserProfile: FC<UserProfileType> = ({
@@ -32,9 +31,11 @@ const UserProfile: FC<UserProfileType> = ({
 	firstName,
 	lastName,
 	email,
-	logout
+	logout,
+	handleLinkTrash
 }) => {
 	const [opened, setOpened] = useState(false);
+	const router = useRouter();
 	return (
 		<Menu
 			opened={opened}
@@ -81,24 +82,12 @@ const UserProfile: FC<UserProfileType> = ({
 				<Menu.Item leftSection={<IconSettings className={scss.svg_icon} />}>
 					Settings
 				</Menu.Item>
-				{/* <Menu.Item
-					leftSection={<IconMessageCircle className={scss.svg_icon} />}
-				>
-					Messages
-				</Menu.Item>
-				<Menu.Item leftSection={<IconPhoto className={scss.svg_icon} />}>
-					Gallery
-				</Menu.Item>
 				<Menu.Item
-					leftSection={<IconSearch className={scss.svg_icon} />}
-					rightSection={
-						<Text size="xs" c="dimmed">
-							⌘K
-						</Text>
-					}
+					leftSection={<IconTrash className={scss.svg_icon} />}
+					onClick={handleLinkTrash}
 				>
-					Search
-				</Menu.Item> */}
+					Trash
+				</Menu.Item>
 
 				<Menu.Divider />
 
