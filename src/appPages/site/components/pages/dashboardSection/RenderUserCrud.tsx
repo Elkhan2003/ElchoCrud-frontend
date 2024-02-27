@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react';
 import scss from './RenderUserCrud.module.scss';
 import axios from 'axios';
-import { ScrollArea, Box, Button, Loader } from '@mantine/core';
+import { ScrollArea, Box, Button, Loader, Skeleton } from '@mantine/core';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import {
 	IconCopy,
@@ -11,19 +11,19 @@ import {
 	IconTrash
 } from '@tabler/icons-react';
 import {
-	useDeleteUserCrudMutation,
-	useGetAllUserCrudQuery
+	useGetAllUserDashboardCrudQuery,
+	useTrashUserCrudMutation
 } from '@/redux/api/crud';
 
 const RenderUserCrud: FC = () => {
 	const [isLoadingButtonReset, setIsLoadingButtonReset] = useState<
 		Record<string, boolean>
 	>({});
-	const [isLoadingButtonDelete, setIsLoadingButtonDelete] = useState<
+	const [isLoadingButtonTrash, setIsLoadingButtonTrash] = useState<
 		Record<string, boolean>
 	>({});
-	const { data, isLoading } = useGetAllUserCrudQuery();
-	const [deleteCrud] = useDeleteUserCrudMutation();
+	const { data, isLoading } = useGetAllUserDashboardCrudQuery();
+	const [trashCrud] = useTrashUserCrudMutation();
 
 	const handleCopyClick = async (url: string, resource: string) => {
 		try {
@@ -33,20 +33,6 @@ const RenderUserCrud: FC = () => {
 		} catch (err) {
 			console.error('Unable to copy URL to clipboard', err);
 		}
-	};
-
-	const notify = (message: string) => {
-		toast(message, {
-			position: 'top-right',
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: 'dark',
-			transition: Bounce
-		});
 	};
 
 	const handleOpenClick = (url: string) => {
@@ -70,13 +56,27 @@ const RenderUserCrud: FC = () => {
 		}
 	};
 
-	const handleDeleteClick = async (id: string | number) => {
+	const handleTrashClick = async (id: number) => {
 		try {
-			setIsLoadingButtonDelete((prev) => ({ ...prev, [id]: true }));
-			await deleteCrud({ id: id });
+			setIsLoadingButtonTrash((prev) => ({ ...prev, [id]: true }));
+			await trashCrud({ id: id });
 		} catch (error) {
-			console.error('Error deleting CRUD:', error);
+			console.error('Error trash CRUD:', error);
 		}
+	};
+
+	const notify = (message: string) => {
+		toast(message, {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'dark',
+			transition: Bounce
+		});
 	};
 
 	return (
@@ -84,97 +84,122 @@ const RenderUserCrud: FC = () => {
 			<section className={scss.RenderUserCrud}>
 				<div className="container">
 					<div className={scss.content}>
-						<h3 className={scss.title}>Your CRUD list:</h3>
-						<ScrollArea type="always" offsetScrollbars classNames={scss}>
-							<Box w={1225} style={{ paddingBottom: 15, paddingRight: 15 }}>
-								<div className={scss.cruds_block}>
-									{data?.results.map((item, index) => (
-										<div key={index + 1} className={scss.crud}>
-											<div className={scss.number_url}>
-												<p className={scss.number}>{index + 1}</p>
-												<p
-													className={scss.url}
-													onClick={() =>
-														handleCopyClick(
-															`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
-															item.resource
-														)
-													}
-												>
-													{process.env.NEXT_PUBLIC_API_URL}/api/v1/{item.url}/
-													{item.resource}
-												</p>
-											</div>
-											<div className={scss.buttons}>
-												<Button
-													className={scss.button}
-													onClick={() =>
-														handleCopyClick(
-															`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
-															item.resource
-														)
-													}
-												>
-													<IconCopy className={scss.icon} />
-													Copy
-												</Button>
-												<Button
-													className={scss.button}
-													variant="outline"
-													onClick={() =>
-														handleOpenClick(
-															`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`
-														)
-													}
-												>
-													<IconDatabaseShare className={scss.icon} />
-													Open
-												</Button>
-												{!isLoadingButtonReset[item.id] ? (
-													<Button
-														className={scss.button}
-														onClick={() =>
-															handleResetClick(item.id, item.url, item.resource)
-														}
-													>
-														<IconRefresh className={scss.icon} />
-														Reset
-													</Button>
-												) : (
-													<Button
-														variant="outline"
-														disabled
-														className={scss.button}
-													>
-														<Loader size="xs" className={scss.loading} />
-														Reset
-													</Button>
-												)}
-												{!isLoadingButtonDelete[item.id] ? (
-													<Button
-														className={scss.button}
-														variant="light"
-														onClick={() => handleDeleteClick(item.id)}
-													>
-														<IconTrash className={scss.icon} />
-														Delete
-													</Button>
-												) : (
-													<Button
-														variant="outline"
-														disabled
-														className={scss.button}
-													>
-														<Loader size="xs" className={scss.loading} />
-														Delete
-													</Button>
-												)}
-											</div>
+						{data?.results.length === 0 ? (
+							<h3 className={scss.you_dont_have_endpoints}>
+								You don’t have Endpoints
+							</h3>
+						) : (
+							<>
+								<h3 className={scss.title}>Your CRUD list:</h3>
+								{isLoading ? (
+									<>
+										<div className={scss.skeleton}>
+											<Skeleton height={30} />
+											<Skeleton height={30} width="80%" />
+											<Skeleton height={30} width="90%" />
 										</div>
-									))}
-								</div>
-							</Box>
-						</ScrollArea>
+									</>
+								) : (
+									<ScrollArea type="always" offsetScrollbars classNames={scss}>
+										<Box
+											w={1225}
+											style={{ paddingBottom: 15, paddingRight: 15 }}
+										>
+											<div className={scss.cruds_block}>
+												{data?.results.map((item, index) => (
+													<div key={index + 1} className={scss.crud}>
+														<div className={scss.number_url}>
+															<p className={scss.number}>{index + 1}</p>
+															<p
+																className={scss.url}
+																onClick={() =>
+																	handleCopyClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+																		item.resource
+																	)
+																}
+															>
+																{process.env.NEXT_PUBLIC_API_URL}/api/v1/
+																{item.url}/{item.resource}
+															</p>
+														</div>
+														<div className={scss.buttons}>
+															<Button
+																className={scss.button}
+																onClick={() =>
+																	handleCopyClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+																		item.resource
+																	)
+																}
+															>
+																<IconCopy className={scss.icon} />
+																Copy
+															</Button>
+															<Button
+																className={scss.button}
+																variant="outline"
+																onClick={() =>
+																	handleOpenClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`
+																	)
+																}
+															>
+																<IconDatabaseShare className={scss.icon} />
+																Open
+															</Button>
+															{!isLoadingButtonReset[item.id] ? (
+																<Button
+																	className={scss.button}
+																	onClick={() =>
+																		handleResetClick(
+																			item.id,
+																			item.url,
+																			item.resource
+																		)
+																	}
+																>
+																	<IconRefresh className={scss.icon} />
+																	Reset
+																</Button>
+															) : (
+																<Button
+																	variant="outline"
+																	disabled
+																	className={scss.button}
+																>
+																	<Loader size="xs" className={scss.loading} />
+																	Reset
+																</Button>
+															)}
+															{!isLoadingButtonTrash[item.id] ? (
+																<Button
+																	className={scss.button}
+																	variant="light"
+																	onClick={() => handleTrashClick(item.id)}
+																>
+																	<IconTrash className={scss.icon} />
+																	Trash
+																</Button>
+															) : (
+																<Button
+																	variant="outline"
+																	disabled
+																	className={scss.button}
+																>
+																	<Loader size="xs" className={scss.loading} />
+																	Trash
+																</Button>
+															)}
+														</div>
+													</div>
+												))}
+											</div>
+										</Box>
+									</ScrollArea>
+								)}
+							</>
+						)}
 					</div>
 				</div>
 			</section>

@@ -18,9 +18,18 @@
 
 .RenderUserCrud {
 	.content {
+		.you_dont_have_endpoints {
+			font-size: 20px;
+			text-align: center;
+		}
 		.title {
 			margin-bottom: 10px;
 			font-size: 20px;
+		}
+		.skeleton {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 		}
 		.cruds_block {
 			display: flex;

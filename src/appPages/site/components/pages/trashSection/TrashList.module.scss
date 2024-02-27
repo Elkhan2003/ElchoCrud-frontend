@@ -1,3 +1,21 @@
+.scrollbar {
+	&,
+	&:hover {
+		background-color: light-dark(
+			var(--mantine-color-gray-0),
+			var(--mantine-color-dark-6)
+		);
+	}
+
+	&[data-orientation='vertical'] .thumb {
+		background-color: var(--mantine-color-red-6);
+	}
+
+	&[data-orientation='horizontal'] .thumb {
+		background-color: #6740d9;
+	}
+}
+
 .TrashList {
 	padding-top: 10px;
 	padding-bottom: 30px;
@@ -32,8 +50,66 @@
 			}
 		}
 
-		.items {
-			.item {
+		.skeleton {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.cruds_block {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			.crud {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.number_url {
+					display: flex;
+					align-items: center;
+					gap: 7px;
+					.number {
+						padding: 4.5px 10px;
+						//background: #2e2e2e;
+						background: -webkit-linear-gradient(-70deg, #6740d9, #996ef8);
+						border-radius: 5px;
+						border: 1px solid #424242;
+						font-weight: 600;
+						color: #c9c9c9;
+
+						cursor: default;
+					}
+					.url {
+						user-select: none;
+						padding: 4.5px 10px;
+						background: #2e2e2e;
+						border-radius: 5px;
+						border: 1px solid #424242;
+						color: #c9c9c9;
+
+						cursor: pointer;
+					}
+				}
+
+				.buttons {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					gap: 7px;
+					.button {
+						width: 100vh;
+						max-width: 127px;
+						.icon {
+							margin-right: 5px;
+							$icon_size: 18px;
+							width: $icon_size;
+							height: $icon_size;
+						}
+						.loading {
+							margin-right: 4px;
+						}
+					}
+				}
 			}
 		}
 	}

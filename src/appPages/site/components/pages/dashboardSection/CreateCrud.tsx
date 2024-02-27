@@ -5,7 +5,7 @@ import { Button, Loader, TextInput } from '@mantine/core';
 import { IconDatabasePlus, IconTrash } from '@tabler/icons-react';
 import {
 	useCreateUserCrudMutation,
-	useDeleteAllUserCrudMutation
+	useTrashAllUserCrudMutation
 } from '@/redux/api/crud';
 
 type Inputs = {
@@ -14,9 +14,9 @@ type Inputs = {
 
 const CreateCrud: FC = () => {
 	const [isLoadingCreate, setIsLoadingCreate] = useState(false);
-	const [isLoadingDeleteAll, setIsLoadingDeleteAll] = useState(false);
+	const [isLoadingTrashAll, setIsLoadingTrashAll] = useState(false);
 	const [createCrud] = useCreateUserCrudMutation();
-	const [deleteAllCrud] = useDeleteAllUserCrudMutation();
+	const [trashAllCrud] = useTrashAllUserCrudMutation();
 	const {
 		register,
 		handleSubmit,
@@ -37,11 +37,11 @@ const CreateCrud: FC = () => {
 		}
 	};
 
-	const handleDeleteAllCrud = async () => {
-		setIsLoadingDeleteAll(true);
-		await deleteAllCrud();
+	const handleTrashAllCrud = async () => {
+		setIsLoadingTrashAll(true);
+		await trashAllCrud();
 		setTimeout(() => {
-			setIsLoadingDeleteAll(false);
+			setIsLoadingTrashAll(false);
 		}, 700);
 	};
 
@@ -80,15 +80,15 @@ const CreateCrud: FC = () => {
 						<Button
 							className={scss.button}
 							variant="light"
-							onClick={handleDeleteAllCrud}
-							disabled={isLoadingDeleteAll}
+							onClick={handleTrashAllCrud}
+							disabled={isLoadingTrashAll}
 						>
-							{isLoadingDeleteAll ? (
+							{isLoadingTrashAll ? (
 								<Loader size="xs" className={scss.loading} />
 							) : (
 								<>
 									<IconTrash className={scss.icon} />
-									<span className={scss.text}>DeleteAll</span>
+									<span className={scss.text}>TrashAll</span>
 								</>
 							)}
 						</Button>
