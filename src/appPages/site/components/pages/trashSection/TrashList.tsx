@@ -87,107 +87,118 @@ const TrashList: FC = () => {
 						<h1 className={scss.title}>
 							Trash <span>Endpoints</span>
 						</h1>
-						{isLoading ? (
-							<div className={scss.skeleton}>
-								<Skeleton height={30} />
-								<Skeleton height={30} width="80%" />
-								<Skeleton height={30} width="90%" />
-							</div>
+						{data?.results.length === 0 ? (
+							<h3 className={scss.you_dont_have_endpoints}>
+								You don’t have trash Endpoints
+							</h3>
 						) : (
-							<ScrollArea type="always" offsetScrollbars classNames={scss}>
-								<Box w={1225} style={{ paddingBottom: 15, paddingRight: 15 }}>
-									<div className={scss.cruds_block}>
-										{data?.results.map((item, index) => (
-											<div key={index + 1} className={scss.crud}>
-												<div className={scss.number_url}>
-													<p className={scss.number}>{index + 1}</p>
-													<p
-														className={scss.url}
-														onClick={() =>
-															handleCopyClick(
-																`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
-																item.resource
-															)
-														}
-													>
-														{process.env.NEXT_PUBLIC_API_URL}/api/v1/{item.url}/
-														{item.resource}
-													</p>
-												</div>
-												<div className={scss.buttons}>
-													<Button
-														className={scss.button}
-														onClick={() =>
-															handleCopyClick(
-																`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
-																item.resource
-															)
-														}
-													>
-														<IconCopy className={scss.icon} />
-														Copy
-													</Button>
-													<Button
-														className={scss.button}
-														variant="outline"
-														onClick={() =>
-															handleOpenClick(
-																`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`
-															)
-														}
-													>
-														<IconDatabaseShare className={scss.icon} />
-														Open
-													</Button>
-													{!isLoadingButtonReset[item.id] ? (
-														<Button
-															className={scss.button}
-															onClick={() =>
-																handleResetClick(
-																	item.id,
-																	item.url,
-																	item.resource
-																)
-															}
-														>
-															<IconRefresh className={scss.icon} />
-															Reset
-														</Button>
-													) : (
-														<Button
-															variant="outline"
-															disabled
-															className={scss.button}
-														>
-															<Loader size="xs" className={scss.loading} />
-															Reset
-														</Button>
-													)}
-													{!isLoadingButtonRecovery[item.id] ? (
-														<Button
-															className={scss.button}
-															variant="light"
-															onClick={() => handleRecoveryClick(item.id)}
-														>
-															<IconArrowBackUp className={scss.icon} />
-															Recovery
-														</Button>
-													) : (
-														<Button
-															variant="outline"
-															disabled
-															className={scss.button}
-														>
-															<Loader size="xs" className={scss.loading} />
-															Recovery
-														</Button>
-													)}
-												</div>
-											</div>
-										))}
+							<>
+								{isLoading ? (
+									<div className={scss.skeleton}>
+										<Skeleton height={30} />
+										<Skeleton height={30} width="80%" />
+										<Skeleton height={30} width="90%" />
 									</div>
-								</Box>
-							</ScrollArea>
+								) : (
+									<ScrollArea type="always" offsetScrollbars classNames={scss}>
+										<Box
+											w={1225}
+											style={{ paddingBottom: 15, paddingRight: 15 }}
+										>
+											<div className={scss.cruds_block}>
+												{data?.results.map((item, index) => (
+													<div key={index + 1} className={scss.crud}>
+														<div className={scss.number_url}>
+															<p className={scss.number}>{index + 1}</p>
+															<p
+																className={scss.url}
+																onClick={() =>
+																	handleCopyClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+																		item.resource
+																	)
+																}
+															>
+																{process.env.NEXT_PUBLIC_API_URL}/api/v1/
+																{item.url}/{item.resource}
+															</p>
+														</div>
+														<div className={scss.buttons}>
+															<Button
+																className={scss.button}
+																onClick={() =>
+																	handleCopyClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`,
+																		item.resource
+																	)
+																}
+															>
+																<IconCopy className={scss.icon} />
+																Copy
+															</Button>
+															<Button
+																className={scss.button}
+																variant="outline"
+																onClick={() =>
+																	handleOpenClick(
+																		`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${item.url}/${item.resource}`
+																	)
+																}
+															>
+																<IconDatabaseShare className={scss.icon} />
+																Open
+															</Button>
+															{!isLoadingButtonReset[item.id] ? (
+																<Button
+																	className={scss.button}
+																	onClick={() =>
+																		handleResetClick(
+																			item.id,
+																			item.url,
+																			item.resource
+																		)
+																	}
+																>
+																	<IconRefresh className={scss.icon} />
+																	Reset
+																</Button>
+															) : (
+																<Button
+																	variant="outline"
+																	disabled
+																	className={scss.button}
+																>
+																	<Loader size="xs" className={scss.loading} />
+																	Reset
+																</Button>
+															)}
+															{!isLoadingButtonRecovery[item.id] ? (
+																<Button
+																	className={scss.button}
+																	variant="light"
+																	onClick={() => handleRecoveryClick(item.id)}
+																>
+																	<IconArrowBackUp className={scss.icon} />
+																	Recovery
+																</Button>
+															) : (
+																<Button
+																	variant="outline"
+																	disabled
+																	className={scss.button}
+																>
+																	<Loader size="xs" className={scss.loading} />
+																	Recovery
+																</Button>
+															)}
+														</div>
+													</div>
+												))}
+											</div>
+										</Box>
+									</ScrollArea>
+								)}
+							</>
 						)}
 					</div>
 				</div>
