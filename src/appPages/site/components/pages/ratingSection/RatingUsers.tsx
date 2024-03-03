@@ -2,12 +2,12 @@
 import React from 'react';
 import scss from './RatingUsers.module.scss';
 import Image from 'next/image';
-import { ScrollArea, Box, Table } from '@mantine/core';
+import { ScrollArea, Box, Table, Skeleton } from '@mantine/core';
 import { useGetRatingQuery } from '@/redux/api/rating';
 import AnimatedNumbers from '../../framerMotion/AnimatedNumbers';
 
 const RatingUsers = () => {
-	const { data } = useGetRatingQuery();
+	const { data, isLoading } = useGetRatingQuery();
 
 	const rows = data?.results.map((item, index) => (
 		<Table.Tr key={index}>
@@ -86,35 +86,46 @@ const RatingUsers = () => {
 						<h1 className={scss.title}>
 							Rating of <span>Users</span>
 						</h1>
-						<ScrollArea type="always" offsetScrollbars classNames={scss}>
-							<Box w={1225} style={{ paddingBottom: 15 }}>
-								<Table
-									striped
-									stripedColor="#181818"
-									highlightOnHover
-									highlightOnHoverColor="#6640d996"
-									withTableBorder
-									withColumnBorders
-								>
-									<Table.Thead>
-										<Table.Tr>
-											<Table.Th>№</Table.Th>
-											<Table.Th>User</Table.Th>
-											<Table.Th>
-												Total R. <span style={{ color: 'red' }}>(Ex. GET)</span>
-											</Table.Th>
-											<Table.Th>GET</Table.Th>
-											<Table.Th>POST</Table.Th>
-											<Table.Th>PUT</Table.Th>
-											<Table.Th>PATCH</Table.Th>
-											<Table.Th>DELETE</Table.Th>
-											<Table.Th>Last Active</Table.Th>
-										</Table.Tr>
-									</Table.Thead>
-									<Table.Tbody>{rows}</Table.Tbody>
-								</Table>
-							</Box>
-						</ScrollArea>
+						{isLoading ? (
+							<div className={scss.skeleton}>
+								<Skeleton height={30} />
+								<Skeleton height={30} width="80%" />
+								<Skeleton height={30} width="90%" />
+							</div>
+						) : (
+							<>
+								<ScrollArea type="always" offsetScrollbars classNames={scss}>
+									<Box w={1225} style={{ paddingBottom: 15 }}>
+										<Table
+											striped
+											stripedColor="#181818"
+											highlightOnHover
+											highlightOnHoverColor="#633cd895"
+											withTableBorder
+											withColumnBorders
+										>
+											<Table.Thead>
+												<Table.Tr>
+													<Table.Th>№</Table.Th>
+													<Table.Th>User</Table.Th>
+													<Table.Th>
+														Total R.{' '}
+														<span style={{ color: 'red' }}>(Ex. GET)</span>
+													</Table.Th>
+													<Table.Th>GET</Table.Th>
+													<Table.Th>POST</Table.Th>
+													<Table.Th>PUT</Table.Th>
+													<Table.Th>PATCH</Table.Th>
+													<Table.Th>DELETE</Table.Th>
+													<Table.Th>Last Active</Table.Th>
+												</Table.Tr>
+											</Table.Thead>
+											<Table.Tbody>{rows}</Table.Tbody>
+										</Table>
+									</Box>
+								</ScrollArea>
+							</>
+						)}
 					</div>
 				</div>
 			</section>

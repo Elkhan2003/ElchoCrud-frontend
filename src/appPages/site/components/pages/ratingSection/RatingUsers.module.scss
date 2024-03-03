@@ -141,5 +141,11 @@
 				-webkit-text-fill-color: transparent;
 			}
 		}
+
+		.skeleton {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
 	}
 }
