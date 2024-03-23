@@ -1,5 +1,5 @@
-import { FC, ReactNode } from 'react';
-import { redirect, usePathname } from 'next/navigation';
+import { FC, ReactNode, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { useGetMeQuery } from '@/redux/api/me';
 
 interface ProtectedRouteProps {
@@ -7,23 +7,28 @@ interface ProtectedRouteProps {
 }
 
 export const SessionProvider: FC<ProtectedRouteProps> = ({ children }) => {
-	const { data } = useGetMeQuery();
+	const { status } = useGetMeQuery();
 	const pathname = usePathname();
+	const router = useRouter();
 
-	switch (pathname) {
-		case '/login':
-			if (data?.user) {
-				redirect('/');
-			}
-			break;
-		// case '/dashboard':
-		// 	if (!data?.user) {
-		// 		redirect('/login');
-		// 	}
-		// 	break;
-		default:
-			break;
-	}
+	useEffect(() => {
+		switch (pathname) {
+			case '/login':
+				if (status === 'fulfilled') {
+					router.push('/dashboard');
+				}
+				break;
+			case '/dashboard':
+			case '/statistics':
+			case '/rating':
+				if (status === 'rejected') {
+					router.push('/login');
+				}
+				break;
+			default:
+				break;
+		}
+	}, [status, pathname, router]);
 
 	return children;
 };

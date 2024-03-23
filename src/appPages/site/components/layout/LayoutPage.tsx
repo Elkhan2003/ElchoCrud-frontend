@@ -4,19 +4,27 @@ import scss from './LayoutPage.module.scss';
 import Header from '@/appPages/site/components/layout/header/Header';
 import Footer from '@/appPages/site/components/layout/footer/Footer';
 import Preloader from '@/appPages/site/components/ui/preLoader/Preloader';
+import { useGetMeQuery } from '@/redux/api/me';
 
 interface LayoutPageType {
 	children: ReactNode;
 }
 
 const LayoutPage: FC<LayoutPageType> = ({ children }) => {
+	const { status } = useGetMeQuery();
 	const [isPreLoader, setIsPreloader] = useState(true);
 
 	useEffect(() => {
-		setTimeout(() => {
+		if (status === 'pending') {
+			setIsPreloader(true);
+		}
+		if (status === 'fulfilled') {
 			setIsPreloader(false);
-		}, 1700);
-	}, []);
+		}
+		if (status === 'rejected') {
+			setIsPreloader(false);
+		}
+	}, [status]);
 
 	return (
 		<>
