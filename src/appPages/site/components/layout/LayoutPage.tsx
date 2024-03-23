@@ -15,9 +15,7 @@ const LayoutPage: FC<LayoutPageType> = ({ children }) => {
 	const [isPreLoader, setIsPreloader] = useState(true);
 
 	useEffect(() => {
-		if (status === 'pending') {
-			setIsPreloader(true);
-		}
+		setIsPreloader(false);
 		if (status === 'fulfilled') {
 			setIsPreloader(false);
 		}
